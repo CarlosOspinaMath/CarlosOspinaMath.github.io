@@ -1,130 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Carlos Ospina's website</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* { box-sizing: border-box; }
+  <title>Carlos Ospina · Research</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-body {
-  font-family: Georgia, "Times New Roman", serif;
-  margin: 0;
-  line-height: 1.7;
-  font-size: 17px;
-  color: #222;
-  background-color: #fafafa;
-}
+  <!-- Google Font: STIX Two Text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600&display=swap" rel="stylesheet">
 
-.navbar {
-  overflow: hidden;
-  background-color: #e6e6e6;
-  position: sticky;
-  top: 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.navbar a {
-  float: left;
-  display: block;
-  color: #333;
-  text-align: center;
-  padding: 14px 20px;
-  text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-
-.navbar a:hover {
-  background-color: #dcdcdc;
-}
-
-.navbar a.active {
-  background-color: #dcdcdc;
-  font-weight: bold;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: 40px auto;
-}
-
-.side {
-  flex: 30%;
-  padding: 20px;
-}
-
-.main {
-  flex: 70%;
-  padding: 20px;
-}
-
-h1, h2, h3 {
-  font-weight: normal;
-  margin-top: 35px;
-  margin-bottom: 15px;
-}
-
-h3 {
-  font-size: 22px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 6px;
-}
-
-p {
-  margin-bottom: 16px;
-}
-
-table {
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-td {
-  padding: 6px 12px 6px 0;
-  vertical-align: top;
-}
-
-.footer {
-  text-align: center;
-  padding: 25px;
-  font-size: 14px;
-  color: #666;
-  border-top: 1px solid #ddd;
-  margin-top: 50px;
-}
-
-@media screen and (max-width: 700px) {
-  .row { flex-direction: column; }
-}
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <div class="container wide">
 
+    <div class="header-placeholder"></div>
+    <script src="header.js"></script>
 
-<div class="navbar">
-  <a href="index.html">Home</a>
-  <a href="Research.html" class="active">Research</a>
-  <a href="Teaching.html">Teaching</a>
-  <a href="OtherLinks.html" class="right">Links</a>
-  <!--<a href="#" class="right">Outreach</a> -->
-</div>
+    <div class="nav-placeholder"></div>
+    <script src="nav.js"></script>
 
-<div class="row">
-  <div class="main">
-    <h4>Papers</h4>
-    <p> <emp> Coboundaries of 3-IETs, </emp> joint with Przemysław Berk (2025). <a href="https://arxiv.org/abs/2501.06380" target="_blank">   [arxiv] </a>  </p>
-    <p> <emp> Some real Rel trajectories in H(1,1) that are not recurrent, </emp> (2024). <a href="https://arxiv.org/abs/2406.07495"target="_blank"> [arXiv]</a> </p>
-    <p> <emp> Slow entropy and variational dynamical systems, </emp> joint with Minhua Cheng, Kurt Vinhage, and Yibo Zai. Mathematics Research Reports, vol. 6, pp. 17-49 (2025).  <a href="https://arxiv.org/abs/2405.11137" target="_blank">   [arxiv]</a>  <a href="https://mrr.centre-mersenne.org/item/10.5802/mrr.22.pdf" target="_blank"> [journal]</a> </p>
-    <p> <emp> Thurston's theorem: Entropy in dimension one, </emp> joint with Ryan Dickmann, George Domat, Thomas Hill, Sanghoon Kwak, Priyam Patel and Rebecca Rechkin.  Math. Res. Lett. vol. 31, no. 1 pp. 127-174 (2024) <a href="papers/Thurstons_Theorem_Entropy_in_Dimension_one.pdf" target="_blank">[pdf]</a> <a href="https://dx.doi.org/10.4310/MRL.240904211719" target="_blank">[journal]</a></p>
-    <h4>Thesis during my time at ICTP</h4>
-    <p> <a href="Report.pdf" target="_blank"> On the Regularity of Maximal Functions </p>
+    <main class="main no-photo">
+      <section>
+
+        <h2>Papers</h2>
+
+          <ul class="papers">
+
+            <li>
+              <em>Coboundaries of 3-IETs</em>, joint with Przemysław Berk (2025).
+              <a href="https://arxiv.org/abs/2501.06380" target="_blank" rel="noopener">[arXiv]</a>
+            </li>
+
+            <li>
+              <em>Some real Rel trajectories in H(1,1) that are not recurrent</em> (2024).
+              <a href="https://arxiv.org/abs/2406.07495" target="_blank" rel="noopener">[arXiv]</a>
+            </li>
+
+            <li>
+              <em>Slow entropy and variational dynamical systems</em>, joint with
+              Minhua Cheng, Kurt Vinhage, and Yibo Zai.
+              Mathematics Research Reports, vol. 6, pp. 17–49 (2025).
+              <a href="https://arxiv.org/abs/2405.11137" target="_blank" rel="noopener">[arXiv]</a>
+              <a href="https://mrr.centre-mersenne.org/item/10.5802/mrr.22.pdf" target="_blank" rel="noopener">[journal]</a>
+            </li>
+
+            <li>
+              <em>Thurston's theorem: Entropy in dimension one</em>,
+              joint with Ryan Dickmann, George Domat, Thomas Hill,
+              Sanghoon Kwak, Priyam Patel and Rebecca Rechkin.
+              Math. Res. Lett. vol. 31, no. 1 pp. 127–174 (2024).
+              <a href="papers/Thurstons_Theorem_Entropy_in_Dimension_one.pdf" target="_blank" rel="noopener">[pdf]</a>
+              <a href="https://dx.doi.org/10.4310/MRL.240904211719" target="_blank" rel="noopener">[journal]</a>
+            </li>
+
+          </ul>
+
+        <div class="section">
+          <h3>Thesis (ICTP)</h3>
+          <p>
+            <a href="Report.pdf" target="_blank" rel="noopener">On the Regularity of Maximal Functions</a>
+          </p>
+        </div>
+
+      </section>
+    </main>
+
+    <div class="footer-placeholder"></div>
+    <script src="footer.js"></script>
+
   </div>
-</div>
-
-
 </body>
 </html>

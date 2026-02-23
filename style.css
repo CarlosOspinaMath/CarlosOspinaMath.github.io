@@ -1,0 +1,473 @@
+/* =====================================================
+  WEBSITE STYLE
+   Carlos Ospina – Stylesheet
+   -----------------------------------------------------
+   This file controls the typography, layout, spacing,
+   colors, and responsiveness of ALL pages.
+   ===================================================== */
+
+
+/* =====================================================
+   1. COLOR VARIABLES & GLOBAL SETTINGS
+   -----------------------------------------------------
+   Change colors or maximum width here.
+   ===================================================== */
+
+:root{
+  --text:#111;                    /* Main body text color */
+  --muted:#555;                   /* Secondary text (subtitles, dates) */
+  --rule:#ddd;                    /* Thin divider lines */
+  --link:#0b3d91;                 /* Link color */
+  --bg:#fff;                      /* Page background color */
+  --maxw:980px;                   /* Maximum content width */
+  --fontsizenavbar:21px;          /* A font-size for the nav bar */
+  --fontsize1:19px;               /* A font-size of type 1 */
+  --fontsizesmall:13px;           /* A font-size for small things */
+  --fontsize2:24px;               /* Font-size for headers type h2 */
+  --fontsizeCO:44px;              /* Font-size for my name */
+  --fontsizeLarge:37px;           /* Font-size for things not bigger than my name */
+}
+
+
+/* Global box-sizing   */
+*{ box-sizing:border-box; }
+
+
+/* =====================================================
+   2. BODY TYPOGRAPHY (font)
+   ===================================================== */
+
+body{
+  margin:0;
+
+  /* =====================================================
+     Background:
+     - background-color uses --bg (change it in :root)
+     - layered gradients add a subtle "paper grain" texture
+     - keep opacities very low so it stays academic
+     ===================================================== */
+  background:
+    linear-gradient(rgba(0,0,0,0.012), rgba(0,0,0,0.012)),
+    radial-gradient(rgba(0,0,0,0.018) 1px, transparent 1px);
+  background-size: 100% 100%, 4px 4px;
+  background-color: var(--bg);
+
+  color:var(--text);
+
+  /* Journal-like serif */
+  font-family: 'STIX Two Text', serif;
+
+  /* LaTeX-ish reading rhythm */
+  font-size:var(--fontsize1);
+  line-height:1.85;
+
+  /* Subtle rendering improvements */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Better justification behavior when we justify text */
+  text-rendering: optimizeLegibility;
+}
+
+
+/* =====================================================
+   3. LINKS
+   ===================================================== */
+
+a{
+  color:var(--link);
+  text-decoration:none;
+}
+
+a:hover{
+  text-decoration:underline;  /* Under line hover for links */
+}
+
+
+/* =====================================================
+   4. PAGE CONTAINER
+   -----------------------------------------------------
+   Controls overall horizontal layout.
+   ===================================================== */
+
+.container{
+  max-width:var(--maxw);  /* Maximum width for reading  */
+  margin:0 auto;          /* Center the page */
+  padding:34px 22px 60px; /* Spacing for: top, sides, bottom  */
+}
+
+/* =====================================================
+   4b. WIDER CONTAINER (for Research / Teaching / Links)
+   -----------------------------------------------------
+   Add class="container wide" in HTML to use this.
+   ===================================================== */
+
+.container.wide{
+  max-width: 1100px;  /* Wider pages */
+}
+
+/* =====================================================
+   5. HEADER (NAME + TITLE)
+   ===================================================== */
+
+.site-header{
+  display:flex;                  /* Places name and right-side info */
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+
+  padding-bottom:18px;
+  border-bottom:1px solid var(--rule); /* Thin rule */
+}
+
+/* Your name */
+.site-title{
+  margin:0;
+  font-size:var(--fontsizeCO);      /* ← name size */
+  line-height:1.1;
+  font-weight:400;     /* Light weight */
+
+  /* AMS/LaTeX feel: avoid extra tracking on serif title */
+  letter-spacing:0;    /* (was .2px) */
+}
+
+/* Subtitle under name */
+.site-subtitle{
+  margin:10px 0 0;
+  color:var(--muted);
+  font-size:var(--fontsize1);
+  line-height:1.5;
+}
+
+
+/* Right-side header block (CV + email) */
+.header-links{
+  text-align:right;
+  font-family: 'STIX Two Text', serif; /* Sans for contrast */
+  font-size:var(--fontsize1);
+  color:var(--muted);
+  line-height:1.6;
+  white-space:nowrap;
+}
+
+.header-links a{
+  color:var(--link);
+}
+
+
+/* =====================================================
+   6. NAVIGATION MENU
+   ===================================================== */
+
+nav{
+  padding:14px 0 0;
+}
+
+.nav{
+  list-style:none;      /* Remove bullet points */
+  padding:0;
+  margin:0;
+
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+
+  font-family: 'STIX Two Text', serif;
+  font-size:var(--fontsizenavbar);
+
+  /* AMS-like navigation:
+     - small-caps looks more like a typeset header than ALL CAPS
+     - gentler tracking */
+  font-variant: small-caps;
+  letter-spacing:.4px;
+
+  /* Turn off all-caps (was uppercase) */
+  text-transform:none;
+}
+
+/* Nav links */
+.nav a{
+  color:#222;
+}
+
+/* Effect of hovering underline  */
+.nav a:hover{
+  text-decoration:none;
+  border-bottom:1px solid #222;
+  padding-bottom:2px;
+}
+
+/* Indicator of active page  */
+.nav .active{
+  border-bottom:1px solid #222;
+  padding-bottom:2px;
+}
+
+
+/* =====================================================
+   7. MAIN TWO-COLUMN LAYOUT
+   -----------------------------------------------------
+   Left: Photo
+   Right: Content
+   ===================================================== */
+
+.main{
+  margin-top:30px;
+
+  display:grid;
+  grid-template-columns:260px 1fr; /* Photo width | Text width */
+  gap:34px;
+  align-items:start;
+}
+
+
+/* =====================================================
+   AMS / LaTeX PARAGRAPH CONVENTIONS (main content only)
+   -----------------------------------------------------
+   LaTeX articles typically:
+   - indent paragraphs
+   - do NOT add extra vertical spacing between paragraphs
+   - justify text
+   We apply this ONLY inside the main content column so it
+   does not affect the header/nav.
+   ===================================================== */
+
+.main section p{
+  margin: 0;              /* Remove extra paragraph spacing (LaTeX-like) */
+  text-indent: 0em;    /* Classic LaTeX paragraph indent */
+  text-align: justify;    /* Journal-style justified text */
+  hyphens: auto;          /* Reduce awkward justification gaps */
+}
+
+/* First paragraph after a heading should not be indented */
+.main section h2 + p,
+.main section h3 + p,
+.main section .section h2 + p{
+  text-indent: 0;
+}
+
+/* If you ever want the old web-style spacing back,
+   comment out the block above and use this instead:
+   .main section p { margin: 0 0 14px; text-indent: 0; text-align: left; }
+*/
+
+/* =====================================================
+   PAPERS LIST (LaTeX-style itemize)
+   -----------------------------------------------------
+   Creates subtle academic bullet points.
+   ===================================================== */
+
+ul.papers{
+  list-style-type: disc;      /* Standard bullet */
+  padding-left: 1.5em;        /* LaTeX-like indentation */
+  margin: 12px 0 0;
+}
+
+ul.papers li{
+  margin: 10px 0;
+  text-align: justify;        /* Keep article-style justification */
+}
+
+/* =====================================================
+   7b. FULL-WIDTH PAGES (no picture column)
+   -----------------------------------------------------
+   Use this for Research / Teaching / Links pages
+   so content spans the full page width.
+   ===================================================== */
+
+.main.no-photo{
+  grid-template-columns: 1fr;  /* One column only */
+}
+
+
+/* =====================================================
+   8. PHOTO STYLING
+   ===================================================== */
+
+.photo{
+  position:sticky;  /* Stays visible for scrolling */
+  top:18px;
+}
+
+.photo img{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid var(--rule); /* Thin border */
+}
+
+/* Small caption for the image */
+.photo-caption{
+  margin-top:10px;
+  font-size:var(--fontsizesmall);
+  color:var(--muted);
+  font-family: 'STIX Two Text', serif;
+  line-height:1.5;
+}
+
+
+/* =====================================================
+   9. HEADINGS & SECTION DIVIDERS
+   ===================================================== */
+
+h2{
+  margin:0 0 10px;
+
+  /* AMS-like section size/weight */
+  font-size:var(--fontsize2);    /* (was 22px) */
+  font-weight:400;   /* (was 400) */
+  letter-spacing:0;
+}
+
+h3{
+  margin:18px 0 8px;
+
+  /* AMS-like subsection size/weight */
+  font-size:var(--fontsize1);    /* (was 18px) */
+  font-weight:500;   /* (was 400) */
+  letter-spacing:0;
+}
+
+/* Thin horizontal rule between major sections */
+.section{
+  margin-top:28px;
+  padding-top:22px;
+  border-top:1px solid var(--rule);
+}
+
+/* Default paragraph rule (kept for safety):
+   Most paragraphs are governed by .main section p above.
+   This remains useful for paragraphs outside main content. */
+p{
+  margin:0 0 14px;
+}
+
+
+/* =====================================================
+   10. EDUCATION TABLE STYLE
+   ===================================================== */
+
+table{
+  border-collapse:collapse;
+  width:100%;
+  margin-top:10px;
+}
+
+td{
+  vertical-align:top;
+
+  /* Slightly tighter spacing looks more typeset */
+  padding:4px 0;  /* (was 6px 0) */
+}
+
+/* First column (years) */
+td:first-child{
+  width:120px;
+  color:var(--muted);
+  padding-right:18px;
+  white-space:nowrap;
+  font-family: 'STIX Two Text', serif;
+  font-size:var(--fontsize1);
+}
+
+
+/* =====================================================
+   10b. LISTS (optional LaTeX-like spacing)
+   -----------------------------------------------------
+   Helps lists look less "webby" and more like a PDF.
+   ===================================================== */
+
+ul, ol{
+  margin:10px 0 14px;
+  padding-left:1.35em;
+}
+
+li{
+  margin:6px 0;
+}
+
+
+/* =====================================================
+   11. LINKS PAGE LIST
+   ===================================================== */
+
+ul.links{
+  margin:8px 0 0;
+  padding-left:18px;
+}
+
+ul.links li{
+  margin:10px 0;
+}
+
+/* Small gray label before link */
+.label{
+  color:var(--muted);
+  font-family: 'STIX Two Text', serif;
+  font-size:var(--fontsize1);
+  letter-spacing:.2px;
+  margin-right:6px;
+}
+
+
+/* =====================================================
+   12. TEACHING PAGE SMALL LABELS
+   ===================================================== */
+
+.teaching-item b{
+  font-family: 'STIX Two Text', serif;
+  font-size:var(--fontsize1);
+  letter-spacing:.2px;
+}
+
+
+/* =====================================================
+   13. FOOTER
+   ===================================================== */
+
+footer{
+  margin-top:46px;
+  padding-top:18px;
+  border-top:1px solid var(--rule);
+  color:var(--muted);
+  font-family: 'STIX Two Text', serif;
+  font-size:var(--fontsizesmall);
+}
+
+
+/* =====================================================
+   14. MOBILE DESIGN RESPONSe
+   -----------------------------------------------------
+   Layout for smaller screens.
+   ===================================================== */
+
+@media (max-width: 820px){
+
+  /* Stack header vertically */
+  .site-header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .header-links{
+    text-align:left;
+    white-space:normal;
+  }
+
+  /* Switch from 2-column to 1-column layout */
+  .main{
+    grid-template-columns:1fr;
+  }
+
+  /* Make photo non-sticky on mobile */
+  .photo{
+    position:static;
+    max-width:320px;
+  }
+
+  /* On narrow screens, justified text can look "gappy".
+     Switching to left-align improves readability. */
+  .main section p{
+    text-align: left;
+  }
+}
