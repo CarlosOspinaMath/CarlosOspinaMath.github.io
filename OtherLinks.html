@@ -1,131 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Carlos Ospina</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* { box-sizing: border-box; }
+  <title>Carlos Ospina · Links</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-body {
-  font-family: Georgia, "Times New Roman", serif;
-  margin: 0;
-  line-height: 1.7;
-  font-size: 17px;
-  color: #222;
-  background-color: #fafafa;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600&display=swap" rel="stylesheet">
 
-.navbar {
-  overflow: hidden;
-  background-color: #e6e6e6;
-  position: sticky;
-  top: 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.navbar a {
-  float: left;
-  display: block;
-  color: #333;
-  text-align: center;
-  padding: 14px 20px;
-  text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-
-.navbar a:hover {
-  background-color: #dcdcdc;
-}
-
-.navbar a.active {
-  background-color: #dcdcdc;
-  font-weight: bold;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: 40px auto;
-}
-
-.side {
-  flex: 30%;
-  padding: 20px;
-}
-
-.main {
-  flex: 70%;
-  padding: 20px;
-}
-
-h1, h2, h3 {
-  font-weight: normal;
-  margin-top: 35px;
-  margin-bottom: 15px;
-}
-
-h3 {
-  font-size: 22px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 6px;
-}
-
-p {
-  margin-bottom: 16px;
-}
-
-table {
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-td {
-  padding: 6px 12px 6px 0;
-  vertical-align: top;
-}
-
-.footer {
-  text-align: center;
-  padding: 25px;
-  font-size: 14px;
-  color: #666;
-  border-top: 1px solid #ddd;
-  margin-top: 50px;
-}
-
-@media screen and (max-width: 700px) {
-  .row { flex-direction: column; }
-}
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <div class="container wide">
 
-
-<div class="navbar">
-  <a href="index.html">Home</a>
-  <a href="Research.html">Research</a>
-  <a href="Teaching.html">Teaching</a>
-  <!-- <a href="About.html">About me</a> -->
-  <a href="OtherLinks.html" class="right active">Links</a>
-  <!-- <a href="#" class="right">Outreach</a> -->
-</div>
-
-<div class="row">
-  <div class="main">
+    <div class="header-placeholder"></div>
+    <script src="header.js"></script>
     
-    <p> <emp> Pares ordenados </emp> <a href="https://sites.google.com/view/23paresordenados/inicio" target="_blank"> https://sites.google.com/view/23paresordenados/ </a> </p>
-    <p> <emp> Schools and Workshops in Ergodic Theory </emp> <a href="https://www.ergodictheory.net" target="_blank"> https://www.ergodictheory.net</a> </p>
-    <p> <emp> Lathisms </emp> <a href="https://www.lathisms.org" target="_blank"> https://www.lathisms.org</a> </p>
-    <p> <emp> Online working seminar in ergodic theory </emp> <a href="https://www.math.utah.edu/~chaika/workingseminar" target="_blank"> https://www.math.utah.edu/~chaika/workingseminar</a> </p>
+    <div class="nav-placeholder"></div>
+    <script src="nav.js"></script>
 
-    
+    <main class="main no-photo">
+      <section>
+
+        <div class="section">
+          <ul class="links">
+            <li>
+              <span class="label">Pares Ordenados:</span>
+              <a href="https://sites.google.com/view/23paresordenados/inicio" target="_blank" rel="noopener">
+                sites.google.com/view/23paresordenados
+              </a>
+            </li>
+
+            <li>
+              <span class="label">Schools & Workshops in Ergodic Theory:</span>
+              <a href="https://www.ergodictheory.net" target="_blank" rel="noopener">
+                ergodictheory.net
+              </a>
+            </li>
+
+            <li>
+              <span class="label">Lathisms:</span>
+              <a href="https://www.lathisms.org" target="_blank" rel="noopener">
+                lathisms.org
+              </a>
+            </li>
+
+            <li>
+              <span class="label">Online working seminar:</span>
+              <a href="https://www.math.utah.edu/~chaika/workingseminar" target="_blank" rel="noopener">
+                working seminar
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+    </main>
+
+    <div class="footer-placeholder"></div>
+    <script src="footer.js"></script>
+
   </div>
-</div>
-
-
 </body>
 </html>
