@@ -8,77 +8,97 @@
 * { box-sizing: border-box; }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Georgia, "Times New Roman", serif;
   margin: 0;
+  line-height: 1.7;
+  font-size: 17px;
+  color: #222;
+  background-color: #fafafa;
 }
-
-.header {
-  padding: 5px;
-  text-align: center;
-  background: #f2f2f2;
-  color: black;
-}
-
-.header h1 { font-size: 30px; }
 
 .navbar {
   overflow: hidden;
-  background-color: #a6a6a6;
+  background-color: #e6e6e6;
   position: sticky;
   top: 0;
+  border-bottom: 1px solid #ddd;
 }
 
 .navbar a {
   float: left;
   display: block;
-  color: black;
+  color: #333;
   text-align: center;
-  padding: 11px 17px;
+  padding: 14px 20px;
   text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
-.navbar a.right { float: right; }
-
 .navbar a:hover {
-  background-color: #E4DDDD;
+  background-color: #dcdcdc;
 }
 
 .navbar a.active {
-  background-color: #E4DDDD;
+  background-color: #dcdcdc;
+  font-weight: bold;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 40px auto;
 }
 
 .side {
   flex: 30%;
-  background-color: #f1f1f1;
   padding: 20px;
 }
 
 .main {
   flex: 70%;
-  background-color: white;
   padding: 20px;
 }
 
+h1, h2, h3 {
+  font-weight: normal;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 22px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+td {
+  padding: 6px 12px 6px 0;
+  vertical-align: top;
+}
+
 .footer {
-  padding: 3px;
   text-align: center;
-  background: #f2f2f2;
+  padding: 25px;
+  font-size: 14px;
+  color: #666;
+  border-top: 1px solid #ddd;
+  margin-top: 50px;
 }
 
 @media screen and (max-width: 700px) {
   .row { flex-direction: column; }
-}
-
-@media screen and (max-width: 400px) {
-  .navbar a {
-    float: none;
-    width: 100%;
-  }
 }
 </style>
 </head>
