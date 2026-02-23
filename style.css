@@ -254,7 +254,7 @@ nav{
 /* =====================================================
    PAPERS LIST (LaTeX-style itemize)
    -----------------------------------------------------
-   Creates subtle academic bullet points.
+   Creates bullet points.
    ===================================================== */
 
 ul.papers{
@@ -298,7 +298,7 @@ ul.papers li{
 
 /* Small caption for the image */
 .photo-caption{
-  margin-top:10px;
+  margin-top:10px 0;
   font-size:var(--fontsizesmall);
   color:var(--muted);
   font-family: 'STIX Two Text', serif;
