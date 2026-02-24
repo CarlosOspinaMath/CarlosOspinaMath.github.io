@@ -10,22 +10,27 @@
 /* =====================================================
    1. COLOR VARIABLES & GLOBAL SETTINGS
    -----------------------------------------------------
-   Change colors or maximum width here.
+   Change colors or maximum width here. The link to 
+   import the google font
    ===================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:wght@400;500;600&family=Source+Serif+4:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap'); 
+
 :root{
-  --text:#111;                    /* Main body text color */
-  --muted:#555;                   /* Secondary text (subtitles, dates) */
+  --text:#000000;                    /* Main body text color or #111*/
+  --muted:#191919;                   /* Secondary text (subtitles, dates) or #555 */
+  --namecolor:#191919;                  /* Color of my name */
   --rule:#ddd;                    /* Thin divider lines */
   --link:#0b3d91;                 /* Link color */
-  --bg:#fff;                      /* Page background color */
+  --bg:#ffffff;                      /* Page background color */
   --maxw:980px;                   /* Maximum content width */
-  --fontsizenavbar:21px;          /* A font-size for the nav bar */
-  --fontsize1:19px;               /* A font-size of type 1 */
-  --fontsizesmall:13px;           /* A font-size for small things */
+  --fontsizenavbar:21px;          /* Font-size for the nav bar */
+  --fontsize1:19px;               /* Font-size of type 1 */
+  --fontsizesmall:13px;           /* Font-size for small things */
   --fontsize2:24px;               /* Font-size for headers type h2 */
   --fontsizeCO:44px;              /* Font-size for my name */
   --fontsizeLarge:37px;           /* Font-size for things not bigger than my name */
+  --fontsizeaddress:17px;         /* Font-size for the address under the photo */
 }
 
 
@@ -44,18 +49,18 @@ body{
      Background:
      - background-color uses --bg (change it in :root)
      - layered gradients add a subtle "paper grain" texture
-     - keep opacities very low so it stays academic
+     - keep opacities very low
      ===================================================== */
   background:
     linear-gradient(rgba(0,0,0,0.012), rgba(0,0,0,0.012)),
-    radial-gradient(rgba(0,0,0,0.018) 1px, transparent 1px);
+    radial-gradient(rgba(0,0,0,0.012) 0.5px, transparent 0.5px);
   background-size: 100% 100%, 4px 4px;
   background-color: var(--bg);
 
   color:var(--text);
 
   /* Journal-like serif */
-  font-family: 'STIX Two Text', serif;
+  font-family: 'STIX Two Text', 'Noto Serif', serif;
 
   /* LaTeX-ish reading rhythm */
   font-size:var(--fontsize1);
@@ -120,14 +125,16 @@ a:hover{
   border-bottom:1px solid var(--rule); /* Thin rule */
 }
 
-/* Your name */
+/* My name */
 .site-title{
   margin:0;
+  font-family: 'STIX Two Text', 'Source Serif 4', 'EB Garamond', serif; /* Sans for contrast */
   font-size:var(--fontsizeCO);      /* ← name size */
+  color:var(--namecolor);
   line-height:1.1;
-  font-weight:400;     /* Light weight */
+  font-weight:600;     /* Medium to heavy weight */
 
-  /* AMS/LaTeX feel: avoid extra tracking on serif title */
+  /* AMS/LaTeX ish: avoid extra tracking on serif title */
   letter-spacing:0;    /* (was .2px) */
 }
 
@@ -143,7 +150,7 @@ a:hover{
 /* Right-side header block (CV + email) */
 .header-links{
   text-align:right;
-  font-family: 'STIX Two Text', serif; /* Sans for contrast */
+  font-family: 'STIX Two Text', 'Noto Serif',serif; /* Sans for contrast */
   font-size:var(--fontsize1);
   color:var(--muted);
   line-height:1.6;
@@ -172,7 +179,7 @@ nav{
   flex-wrap:wrap;
   gap:16px;
 
-  font-family: 'STIX Two Text', serif;
+  font-family: 'STIX Two Text', 'Noto Serif',serif;
   font-size:var(--fontsizenavbar);
 
   /* AMS-like navigation:
@@ -301,7 +308,16 @@ ul.papers li{
   margin-top:10px 0;
   font-size:var(--fontsizesmall);
   color:var(--muted);
-  font-family: 'STIX Two Text', serif;
+  font-family: 'STIX Two Text', 'Noto Serif',serif;
+  line-height:1.5;
+}
+
+/* Address under photo caption for the image */
+.photo-address{
+  margin-top:10px 0;
+  font-size:var(--fontsizeaddress);
+  color:var(--muted);
+  font-family: 'STIX Two Text', 'Hedvig Letters Serif', serif;
   line-height:1.5;
 }
 
@@ -366,7 +382,7 @@ td:first-child{
   color:var(--muted);
   padding-right:18px;
   white-space:nowrap;
-  font-family: 'STIX Two Text', serif;
+  font-family: 'STIX Two Text', 'Noto Serif', serif;
   font-size:var(--fontsize1);
 }
 
@@ -403,7 +419,7 @@ ul.links li{
 /* Small gray label before link */
 .label{
   color:var(--muted);
-  font-family: 'STIX Two Text', serif;
+  font-family: 'STIX Two Text', 'Noto Serif', serif;
   font-size:var(--fontsize1);
   letter-spacing:.2px;
   margin-right:6px;
@@ -415,7 +431,7 @@ ul.links li{
    ===================================================== */
 
 .teaching-item b{
-  font-family: 'STIX Two Text', serif;
+  font-family: 'STIX Two Text', 'Noto Serif', serif;
   font-size:var(--fontsize1);
   letter-spacing:.2px;
 }
@@ -430,7 +446,7 @@ footer{
   padding-top:18px;
   border-top:1px solid var(--rule);
   color:var(--muted);
-  font-family: 'STIX Two Text', serif;
+  font-family: 'STIX Two Text', 'Noto Serif', serif;
   font-size:var(--fontsizesmall);
 }
 
