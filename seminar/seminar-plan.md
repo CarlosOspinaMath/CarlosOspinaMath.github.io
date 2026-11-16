@@ -1,6 +1,6 @@
 # Reading seminar: Generic points on the staircase and irregularities in uniform distribution
 
-**Paper:** Dmitry Dolgopyat and Omri Sarig, *Generic Points on the Staircase and Irregularities in Uniform Distribution*, [arXiv:2609.33590v1](https://arxiv.org/abs/2609.33590), 27 September 2026, 184 pages.
+**Paper:** Dmitry Dolgopyat and Omri Sarig, *Generic Points on the Staircase and Irregularities in Uniform Distribution*, <a href="https://arxiv.org/abs/2609.33590" target="_blank" rel="noopener noreferrer">arXiv:2609.33590v1</a>, 27 September 2026, 184 pages.
 
 **Audience:** participants familiar with graduate-level ergodic theory, learning the continued-fraction, translation-surface, and probability tools together.
 
