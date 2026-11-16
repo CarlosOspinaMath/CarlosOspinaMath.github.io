@@ -2,13 +2,13 @@
 
 **Paper:** Dmitry Dolgopyat and Omri Sarig, *Generic Points on the Staircase and Irregularities in Uniform Distribution*, <a href="https://arxiv.org/abs/2609.33590" target="_blank" rel="noopener noreferrer">arXiv:2609.33590v1</a>, 27 September 2026, 184 pages.
 
-**Audience:** participants familiar with graduate-level ergodic theory, learning the continued-fraction, translation-surface, and probability tools together.
+**Background:** familiarity with ergodic theory, continued-fraction, translation surfaces, and probability.
 
 **Format:** weekly, 90 minutes; 14 core meetings, with optional continuation. Dates and participants remain to be arranged. The schedule below is a proposed plan, not the authors’ organization or a claim that every proof can be covered in 14 meetings. Page numbers refer to the printed pages of the arXiv v1 PDF.
 
-## Purpose and intended outcome
+## Goals
 
-The seminar has three goals: understand the main results and their meaning; study the techniques that make the proofs work; and understand why the problems are interesting. At the end, participants should be able to explain the arithmetic question, reconstruct the main proof dependencies, and present at least one substantial argument in detail.
+The seminar has three goals: understand the main results and their meaning; study the techniques that make the proofs work; and understand why the problems are interesting. At the end, we should be able to explain the questions, reconstruct the main proof, and present at least one substantial argument in detail.
 
 Use Theorem 1.2 as the main destination: a criterion, expressed through even continued fractions, for the local discrepancy sequence to visit any two fixed half-integer levels with asymptotically equal frequencies. Its proof brings together the genericity characterization in Theorem 1.20 and the twist calculation in Theorem 4.5. Theorem 1.25 provides the broader genericity framework; Theorems 1.9–1.13 provide an illuminating parallel application to temporal limit laws.
 
@@ -20,9 +20,9 @@ The core seminar should understand the local limit theorems stated in Appendix D
 
 Hi everyone,
 
-I’m organizing a reading seminar on Dmitry Dolgopyat and Omri Sarig’s *Generic Points on the Staircase and Irregularities in Uniform Distribution* (arXiv:2609.33590v1).
+We are starting a reading seminar on Dmitry Dolgopyat and Omri Sarig’s *Generic Points on the Staircase and Irregularities in Uniform Distribution* [arXiv:2609.33590v1](https://arxiv.org/abs/2609.33590).
 
-The starting question is simple: even though an irrational rotation is equidistributed, can the errors in counting visits to half the circle have a persistent bias? The paper connects this question to generic points for flows on the infinite staircase, using continued-fraction renormalization, symbolic dynamics, and local limit theorems for inhomogeneous Markov chains.
+The starting question is simple: even though an irrational rotation is equidistributed, can the errors in counting visits to half the circle have a persistent bias? The paper connects this question to generic points for flows on the infinite staircase, using continued fraction expansions, symbolic dynamics, and theorems for inhomogeneous Markov chains.
 
 Our aim will be to understand the main results, learn the techniques behind them, and discuss why these problems are interesting. We’ll assume graduate-level ergodic theory and develop the other background as needed.
 
@@ -33,8 +33,7 @@ If you’re interested, please reply with your availability, relevant background
 The paper is attached, and I’ll share the proposed reading schedule before we begin.
 
 Best,
-
-*Sending note: attach the supplied paper and share the schedule below. No date, location, or recipient list has been assumed.*
+Chen and Carlos
 
 ## Opening introduction: a suggested 8–10 minute script
 
