@@ -75,7 +75,7 @@ This is where probability enters a deterministic problem. A central limit theore
 
 So our route will be: understand the counting question; understand the geometric model; build the symbolic and probabilistic machinery; and return to the arithmetic criterion. We’ll aim to explain why each tool is needed and prove selected key steps carefully.
 
-## First meeting: organizer’s 90-minute talk
+## First meeting: organizers' 90-minute talk
 
 - **0–10 minutes:** the discrepancy question and the three meanings of bias.
 - **10–25:** definitions, the √2/√3 contrast, and Theorem 1.2. Explain bounded type and state the even-CFE criterion without developing the machinery yet.
@@ -92,16 +92,16 @@ Ask everyone to read §§1.1–1.3 before this meeting. The organizer should als
 
 The reading column is the presenter’s main assignment. Everyone else should read the section introductions, principal statements, and the presenter’s short guide. A technical chapter does not need to be reproduced line by line in a single meeting.
 
-| Meeting | Main reading | Focus and concrete outcome | Presenter |
+| Meeting | Relevant §§ | Focus  | Speaker |
 |---|---|---|---|
-| 1. Why this problem? | §§1.1–1.4, 1.6 | Define the biases, state Theorem 1.2, and draw the proof map. | Organizer |
-| 2. From arithmetic to genericity | §1.3, selected §1.4; Appendix A, pp. 145–148 | Derive the height/discrepancy identity; define ratio genericity; explain even CFE and bounded type. Use one explicit expansion. | Arithmetic/geometry lead |
-| 3. Renormalization | §§2–4.2, pp. 27–36; Appendix B as needed | Explain the canonical matrix products, controlled fundamental domains, and uniform contraction. Show why renormalization depth is comparable to log T. Work through one matrix example. | Renormalization lead |
-| 4. Symbolic coding and jumps | §§5–6, pp. 36–44 | Explain the changing Markov partitions and modified integer coordinates. Show how geometric displacement becomes a sum of symbolic jump functions, up to controlled error. | Symbolic dynamics lead |
-| 5. The changing Markov chain | §7, pp. 44–49; Appendix D setup | Derive the transition law and explain uniform ellipticity and mixing. Identify exactly what changes with time. | Symbolic dynamics lead |
-| 6. Why the limit theorems apply | §8, pp. 49–56; relevant Appendix D statements | Explain structure constants, irreducibility, bounded drift, and variance comparable to n. Present one geometric argument in detail; map the other hypotheses to their proofs. | Probability lead |
-| 7. Returning from coding to orbit segments | §9, pp. 56–61; revisit §1.6.2 | Distinguish forward, backward, and symbolic walks. Explain conditioning on pure unstable segments and how it supports occupation estimates. | Symbolic or renormalization lead |
-| 8. Temporal central and local limits | §10, pp. 61–67; Appendix D as needed | Explain the temporal CLT and local CLT, then recover Theorems 1.9 and 1.13. Track the factor 2 between discrepancy and height. | Probability lead |
+| 1. Why this problem? | §§1.1–1.4, 1.6 | Define the biases, state Theorem 1.2, and draw the proof map. | Chen & Carlos |
+| 2. From arithmetic to genericity | §1.3, selected §1.4; Appendix A, pp. 145–148 | Derive the height/discrepancy identity; define ratio genericity; explain even CFE and bounded type. Use one explicit expansion. |  |
+| 3. Renormalization | §§2–4.2, pp. 27–36; Appendix B as needed | Explain the canonical matrix products, controlled fundamental domains, and uniform contraction. Show why renormalization depth is comparable to log T. Work through one matrix example. |  |
+| 4. Symbolic coding and jumps | §§5–6, pp. 36–44 | Explain the changing Markov partitions and modified integer coordinates. Show how geometric displacement becomes a sum of symbolic jump functions, up to controlled error. |  |
+| 5. The changing Markov chain | §7, pp. 44–49; Appendix D setup | Derive the transition law and explain uniform ellipticity and mixing. Identify exactly what changes with time. |  |
+| 6. Why the limit theorems apply | §8, pp. 49–56; relevant Appendix D statements | Explain structure constants, irreducibility, bounded drift, and variance comparable to n. Present one geometric argument in detail; map the other hypotheses to their proofs. |  |
+| 7. Returning from coding to orbit segments | §9, pp. 56–61; revisit §1.6.2 | Distinguish forward, backward, and symbolic walks. Explain conditioning on pure unstable segments and how it supports occupation estimates. |  |
+| 8. Temporal central and local limits | §10, pp. 61–67; Appendix D as needed | Explain the temporal CLT and local CLT, then recover Theorems 1.9 and 1.13. Track the factor 2 between discrepancy and height. |  |
 | 9. Change of measure and pressure | §§11.1–11.3, pp. 68–70; selected Appendix D | Explain exponential tilting and pressure derivatives. Show why a moving target may require a change of measure rather than a central Gaussian approximation. | Pressure/genericity lead |
 | 10. Comparing pressure descriptions | §§11.4–11.5, pp. 70–83 | State Proposition 11.7 precisely and explain the roles of its comparison lemmas. Prove one selected lemma; give a structured account of the rest. | Pressure/genericity lead |
 | 11. Sufficient conditions for genericity | §12.1, pp. 83–91 | Follow the route from finite tilt-parameter convergence to occupation ratios. Make the use of local estimates and cylinder approximations explicit. | Pressure/genericity lead |
