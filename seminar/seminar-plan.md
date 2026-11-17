@@ -44,7 +44,7 @@ Let
 
 $$D_N(α) = \#{0 ≤ j < N : {jα} ∈ [0, 1/2)} − N/2.$$
 
-Weyl’s theorem says D_N(α)/N tends to zero. But that leaves open almost everything about the error itself. Does it stay mostly positive? Does its histogram drift away from zero? Does it visit two fixed values equally often?
+Weyl’s theorem says $\frac{D_N(α)}{N}$ tends to zero. But that leaves open almost everything about the error itself. Does it stay mostly positive? Does its histogram drift away from zero? Does it visit two fixed values equally often?
 
 These are different questions. The paper distinguishes sign bias, global bias, and local bias. For the last question, note that every D_N belongs to the half-integer lattice. We ask whether, for every fixed pair ξ₁ and ξ₂ in that lattice,
 
