@@ -2,8 +2,7 @@
 
 We are reading Dmitry Dolgopyat and Omri Sarig’s *Generic Points on the Staircase and Irregularities in Uniform Distribution*. The seminar aims to understand the main results, study the techniques behind them, and explore why the problems are interesting.
 
-**Paper:** <a href="https://arxiv.org/abs/2609.33590v1" target="_blank" rel="noopener noreferrer">arXiv:2609.33590v1</a>
-, 27 September 2026.
+**Paper:** <a href="https://arxiv.org/abs/2609.33590v1" target="_blank" rel="noopener noreferrer">arXiv:2609.33590v1</a>, 27 September 2026.
 
 **Format:** weekly meetings of approximately 90 minutes, with a 60-minute introductory meeting. The proposed program has 14 meetings and may be adjusted as we progress.
 
