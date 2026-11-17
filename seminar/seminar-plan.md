@@ -61,7 +61,7 @@ The schedule is provisional. Unassigned speakers are marked “TBA”; a dash in
 | 11 | Sufficient conditions | §12.1, pp. 83–91 | TBA | — |
 | 12 | Necessary conditions | §12.2, pp. 91–100; §1.6.4 | TBA | — |
 | 13 | Back to the arithmetic criterion | §12.3, pp. 100–106; §4.3; selected Appendix C, pp. 151–160 | TBA | — |
-| 14 | Synthesis and open problems | §§1.2, 1.4, 1.6; proof locator p. 179 | Everyone | — |
+| 14 | Recap and open problems | §§1.2, 1.4, 1.6; proof locator p. 179 | Everyone | — |
 
 ## Reading and participation
 
