@@ -38,41 +38,67 @@ Organizers
 
 ## Introduction
 
-Start with an irrational number $\alpha$. Weyl’s theorem tells us that the sequence of fractional parts ${j\alpha}$ is equidistributed in the circle. In particular, roughly half of the first $N$ points lie in the interval [0, 1/2).
+Start with an irrational number $\alpha$. Weyl’s theorem tells us that the sequence of fractional parts $\{j\alpha\}$ is equidistributed in the circle. In particular, roughly half of the first $N$ points lie in the interval $[0, 1/2)$.
 
 Let
 
 $$
-D_N(\alpha) = \#{0 ≤ j < N : {j\alpha} ∈ [0, 1/2)} − \frac{N}{2}.
+D_N(\alpha)
+=
+\#\left\{0 \le j < N : \{j\alpha\} \in [0, 1/2)\right\}
+-
+\frac{N}{2}.
 $$
 
-Weyl’s theorem says $\frac{D_N(α)}{N}$ tends to zero. But that leaves open almost everything about the error itself. Does it stay mostly positive? Does its histogram drift away from zero? Does it visit two fixed values equally often?
+Weyl’s theorem says $\frac{D_N(\alpha)}{N}$ tends to zero. But that leaves open almost everything about the error itself. Does it stay mostly positive? Does its histogram drift away from zero? Does it visit two fixed values equally often?
 
-These are different questions. The paper distinguishes sign bias, global bias, and local bias. For the last question, note that every $D_N$ belongs to the half-integers $\frac12\mathbb{Z}$. We ask whether, for every fixed pair $\zeta_1$ and $\zeta_2$ in $\frac12\mathbb{Z}$,
+These are different questions. The paper distinguishes sign bias, global bias, and local bias. For the last question, note that every $D_N$ belongs to the half-integers $\frac{1}{2}\mathbb{Z}$. We ask whether, for every fixed pair $\zeta_1$ and $\zeta_2$ in $\frac{1}{2}\mathbb{Z}$,
 
 $$
-\frac{\#{1 ≤ N ≤ n : D_N(α) = \zeta_1} }{\#{1 ≤ N ≤ n : D_N(α) = \zeta_2}} \to 1.
+\frac{
+\#\left\{1 \le N \le n : D_N(\alpha) = \zeta_1\right\}
+}{
+\#\left\{1 \le N \le n : D_N(\alpha) = \zeta_2\right\}
+}
+\longrightarrow 1
+\qquad \text{as } n \to \infty.
 $$
 
 This is a ratio statement. There is no uniform probability measure on an infinite lattice, and we are not claiming that each level has a positive limiting frequency. The paper’s Table 1 gives a striking contrast: $\sqrt{3}$ has none of the three biases, whereas $\sqrt{2}$ has all three.
 
-The main theorem gives an explicit criterion when α has bounded continued-fraction coefficients. Expand β = 2α − 1 in its even continued fraction,
+The main theorem gives an explicit criterion when $\alpha$ has bounded continued-fraction coefficients. Expand $\beta = 2\alpha - 1$ in its even continued fraction,
 
-β = [2m₀; 2m₁, 2m₂, …].
+$$
+\beta = [2m_0; 2m_1, 2m_2, \ldots].
+$$
 
 Then equal-frequency ratios hold exactly when
 
-(1/n) Σ_{j=1}^n [sgn(m₂ⱼ) − sgn(m₂ⱼ₋₁)] → 0.
+$$
+\frac{1}{n}
+\sum_{j=1}^{n}
+\left[
+\operatorname{sgn}(m_{2j})
+-
+\operatorname{sgn}(m_{2j-1})
+\right]
+\longrightarrow 0
+\qquad \text{as } n \to \infty.
+$$
 
 One goal of our seminar is to understand why this arithmetic sign average governs the counting errors.
 
-The first bridge is elementary. Define τ(x) to be +1 in the first half of the circle and −1 in the second. Consider the cylinder map
+The first bridge is elementary. Define $\tau(x)$ to be $+1$ in the first half of the circle and $-1$ in the second. Consider the cylinder map
 
-T_α(x,k) = ({x+α}, k+τ(x)).
+$$
+T_\alpha(x,k)
+=
+\left(\{x+\alpha\},\, k+\tau(x)\right).
+$$
 
-Starting at (0,0), its height after N steps is exactly 2D_N(α). Counting the times the discrepancy equals a given value becomes counting visits to a given height. Suspending this map leads to a linear flow on the infinite staircase, an infinite-area translation surface.
+Starting at $(0,0)$, its height after $N$ steps is exactly $2D_N(\alpha)$. Counting the times the discrepancy equals a given value becomes counting visits to a given height. Suspending this map leads to a linear flow on the infinite staircase, an infinite-area translation surface.
 
-This reformulation exposes the conceptual difficulty. An ergodic theorem can describe almost every starting point, but our arithmetic question singles out the starting point (0,0). We need a way to decide whether this particular point is generic. Since the natural measures are infinite, genericity is expressed through ratios of occupation integrals.
+This reformulation exposes the conceptual difficulty. An ergodic theorem can describe almost every starting point, but our arithmetic question singles out the starting point $(0,0)$. We need a way to decide whether this particular point is generic. Since the natural measures are infinite, genericity is expressed through ratios of occupation integrals.
 
 The proof uses renormalization to shorten a long orbit segment to a manageable size. Continued fractions supply the sequence of transformations. Symbolic dynamics then converts the relevant displacement into an additive functional of a Markov chain whose transition rules change with time.
 
@@ -80,18 +106,31 @@ This is where probability enters a deterministic problem. A central limit theore
 
 So our route will be: understand the counting question; understand the geometric model; build the symbolic and probabilistic machinery; and return to the arithmetic criterion. We’ll aim to explain why each tool is needed and prove selected key steps carefully.
 
-## First meeting: organizers' 90-minute talk
+## First meeting: introduction to the paper
 
-- **0–10 minutes:** the discrepancy question and the three meanings of bias.
-- **10–25:** definitions, the √2/√3 contrast, and Theorem 1.2. Explain bounded type and state the even-CFE criterion without developing the machinery yet.
-- **25–45:** derive the cylinder-map identity; show the staircase picture and explain the suspension using §1.3.
-- **45–60:** explain why almost-everywhere results do not settle the specified initial point, and why ratios replace probability averages.
-- **60–75:** the proof map from §1.6; distinguish a CLT from a local limit theorem and explain why the chain is inhomogeneous.
-- **75–90:** discussion, collect background needs, and allocate the first blocks of presentations.
+The first meeting will be a 60-minute overview, divided into two parts following the introduction of the paper. We will introduce the main objects and selected results, keeping proofs and technical constructions for later meetings.
 
-Suggested board sequence: D_N definition → three biases → cylinder map → staircase picture → renormalization → changing Markov chain → local estimates → genericity → even-CFE criterion.
+### Part 1: Discrepancy and bias — Carlos (30 minutes)
 
-Ask everyone to read §§1.1–1.3 before this meeting. The organizer should also read §§1.4 and 1.6; §1.5 supplies optional historical context.
+Reading: §§1.1–1.2.
+
+- Define the local discrepancy $D_N(\alpha)$ and explain the distinction between sign bias, global bias, and local bias.
+- Introduce regular and even continued-fraction expansions and the bounded-type assumption.
+- State the equidistribution criterion (Theorem 1.2), using the examples in the introduction to illustrate it.
+- Introduce the temporal CLT (Theorem 1.9) and explain how its centering measures global bias.
+- If time permits, discuss the centering formula (Theorem 1.10) and the relationship between local and global bias (Corollary 1.12).
+
+### Part 2: The dynamical formulation — Chen (30 minutes)
+
+Reading: §1.3 and selected results from §1.4.
+
+- Introduce the cylinder map and explain how its height records discrepancy.
+- Describe the infinite staircase and its connection to the cylinder map.
+- Introduce the renormalizing matrices $A_n$ and the height sequence $z_n$.
+- Explain how the genericity criterion (Theorem 1.20) relates to equidistribution of the discrepancy sequence.
+- Describe the dynamical temporal CLT (Theorem 1.35) and its connection to the arithmetic CLT.
+
+Participants are encouraged to read §§1.1–1.3 beforehand. The meeting is intended to establish the questions and the connections between the arithmetic and dynamical viewpoints.
 
 ## Core schedule
 
