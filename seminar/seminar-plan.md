@@ -1,3 +1,5 @@
+<script src="/mathjax.js" defer></script>
+
 # Reading seminar: Generic points on the staircase and irregularities in uniform distribution
 
 We are reading Dmitry Dolgopyat and Omri Sarig’s *Generic Points on the Staircase and Irregularities in Uniform Distribution*. The seminar aims to understand the main results, study the techniques behind them, and explore why the problems are interesting.
