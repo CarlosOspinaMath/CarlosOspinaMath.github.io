@@ -38,7 +38,7 @@ Organizers
 
 ## Introduction
 
-Start with an irrational number α. Weyl’s theorem tells us that the sequence of fractional parts {jα} is equidistributed in the circle. In particular, roughly half of the first N points lie in the interval [0, 1/2).
+Start with an irrational number $\alpha$. Weyl’s theorem tells us that the sequence of fractional parts ${j\alpha}$ is equidistributed in the circle. In particular, roughly half of the first $N$ points lie in the interval [0, 1/2).
 
 Let
 
