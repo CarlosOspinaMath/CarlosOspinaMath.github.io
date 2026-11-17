@@ -36,23 +36,27 @@ Best,
 
 Organizers
 
-## Opening introduction: a suggested 8–10 minute script
+## Introduction
 
 Start with an irrational number α. Weyl’s theorem tells us that the sequence of fractional parts {jα} is equidistributed in the circle. In particular, roughly half of the first N points lie in the interval [0, 1/2).
 
 Let
 
-$$D_N(α) = \#{0 ≤ j < N : {jα} ∈ [0, 1/2)} − N/2.$$
+$$
+D_N(\alpha) = \#{0 ≤ j < N : {j\alpha} ∈ [0, 1/2)} − \frac{N}{2}.
+$$
 
 Weyl’s theorem says $\frac{D_N(α)}{N}$ tends to zero. But that leaves open almost everything about the error itself. Does it stay mostly positive? Does its histogram drift away from zero? Does it visit two fixed values equally often?
 
-These are different questions. The paper distinguishes sign bias, global bias, and local bias. For the last question, note that every D_N belongs to the half-integer lattice. We ask whether, for every fixed pair ξ₁ and ξ₂ in that lattice,
+These are different questions. The paper distinguishes sign bias, global bias, and local bias. For the last question, note that every $D_N$ belongs to the half-integers $\frac12\mathbb{Z}$. We ask whether, for every fixed pair $\zeta_1$ and $\zeta_2$ in $\frac12\mathbb{Z}$,
 
-$$\frac{\#{1 ≤ N ≤ n : D_N(α) = ξ₁} }{\#{1 ≤ N ≤ n : D_N(α) = ξ₂}} \to 1.$$
+$$
+\frac{\#{1 ≤ N ≤ n : D_N(α) = \zeta_1} }{\#{1 ≤ N ≤ n : D_N(α) = \zeta_2}} \to 1.
+$$
 
-This is a ratio statement. There is no uniform probability measure on an infinite lattice, and we are not claiming that each level has a positive limiting frequency. The paper’s Table 1 gives a striking contrast: √3 has none of the three biases, whereas √2 has all three.
+This is a ratio statement. There is no uniform probability measure on an infinite lattice, and we are not claiming that each level has a positive limiting frequency. The paper’s Table 1 gives a striking contrast: $\sqrt{3}$ has none of the three biases, whereas $\sqrt{2}$ has all three.
 
-The main arithmetic theorem gives an explicit criterion when α has bounded continued-fraction coefficients. Expand β = 2α − 1 in its even continued fraction,
+The main theorem gives an explicit criterion when α has bounded continued-fraction coefficients. Expand β = 2α − 1 in its even continued fraction,
 
 β = [2m₀; 2m₁, 2m₂, …].
 
