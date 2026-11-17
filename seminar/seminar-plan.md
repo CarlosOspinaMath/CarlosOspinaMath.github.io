@@ -2,9 +2,9 @@
 
 **Paper:** Dmitry Dolgopyat and Omri Sarig, *Generic Points on the Staircase and Irregularities in Uniform Distribution*, <a href="https://arxiv.org/abs/2609.33590" target="_blank" rel="noopener noreferrer">arXiv:2609.33590v1</a>, 27 September 2026, 184 pages.
 
-**Background:** familiarity with ergodic theory, continued-fraction, translation surfaces, and probability.
+**Background:** familiarity with ergodic theory, continued fractions, translation surfaces, and probability.
 
-**Format:** weekly, 90 minutes; 14 core meetings, with optional continuation. Dates and participants remain to be arranged. The schedule below is a proposed plan, not the authors’ organization or a claim that every proof can be covered in 14 meetings. Page numbers refer to the printed pages of the arXiv v1 PDF.
+**Format:** weekly, ±90 minutes; ±14 core meetings. Dates and participants remain to be arranged. The schedule below is a proposed plan, not the authors’ organization or a claim that every proof can be covered in 14 meetings. Page numbers refer to the printed pages of the arXiv v1 PDF.
 
 ## Goals
 
@@ -12,7 +12,7 @@ The seminar has three goals: understand the main results and their meaning; stud
 
 Use Theorem 1.2 as the main destination: a criterion, expressed through even continued fractions, for the local discrepancy sequence to visit any two fixed half-integer levels with asymptotically equal frequencies. Its proof brings together the genericity characterization in Theorem 1.20 and the twist calculation in Theorem 4.5. Theorem 1.25 provides the broader genericity framework; Theorems 1.9–1.13 provide an illuminating parallel application to temporal limit laws.
 
-The core seminar should understand the local limit theorems stated in Appendix D and check how their hypotheses are verified here. Proving those probability theorems from scratch would require a separate reading program in the authors’ 2023 monograph. Appendix C should be treated selectively: understand the geometric mechanism and work through one twist computation rather than reproduce every case.
+We should aim to understand the local limit theorems stated in Appendix D and check how their hypotheses are verified here. Proving those probability theorems from scratch would require a separate reading program in the authors’ 2023 monograph. Appendix C should be treated selectively: understand the geometric mechanism and work through one twist computation rather than reproduce every case.
 
 ## Announcement email
 
@@ -33,7 +33,8 @@ If you’re interested, please reply with your availability, relevant background
 The paper is attached, and I’ll share the proposed reading schedule before we begin.
 
 Best,
-Chen and Carlos
+
+Organizers
 
 ## Opening introduction: a suggested 8–10 minute script
 
@@ -41,7 +42,7 @@ Start with an irrational number α. Weyl’s theorem tells us that the sequence 
 
 Let
 
-D_N(α) = #{0 ≤ j < N : {jα} ∈ [0, 1/2)} − N/2.
+$$D_N(α) = \#{0 ≤ j < N : {jα} ∈ [0, 1/2)} − N/2.$$
 
 Weyl’s theorem says D_N(α)/N tends to zero. But that leaves open almost everything about the error itself. Does it stay mostly positive? Does its histogram drift away from zero? Does it visit two fixed values equally often?
 
