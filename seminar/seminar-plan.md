@@ -10,7 +10,7 @@ We are reading Dmitry Dolgopyat and Omri Sarig’s *Generic Points on the Stairc
 
 **Time and location:** to be announced.
 
-**Background:** familiarity with graduate-level ergodic theory. We will develop the continued-fraction, translation-surface, and probability tools as needed.
+**Background:** familiarity with graduate-level ergodic theory. We will develop continued fraction expansions, translation surface, and probability tools as needed.
 
 ## News
 
