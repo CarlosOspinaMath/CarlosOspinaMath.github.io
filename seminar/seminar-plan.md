@@ -48,7 +48,7 @@ Weyl’s theorem says $\frac{D_N(α)}{N}$ tends to zero. But that leaves open al
 
 These are different questions. The paper distinguishes sign bias, global bias, and local bias. For the last question, note that every D_N belongs to the half-integer lattice. We ask whether, for every fixed pair ξ₁ and ξ₂ in that lattice,
 
-#{1 ≤ N ≤ n : D_N(α) = ξ₁} / #{1 ≤ N ≤ n : D_N(α) = ξ₂} → 1.
+$$\frac{\#{1 ≤ N ≤ n : D_N(α) = ξ₁} }{\#{1 ≤ N ≤ n : D_N(α) = ξ₂}} \to 1.$$
 
 This is a ratio statement. There is no uniform probability measure on an infinite lattice, and we are not claiming that each level has a positive limiting frequency. The paper’s Table 1 gives a striking contrast: √3 has none of the three biases, whereas √2 has all three.
 
