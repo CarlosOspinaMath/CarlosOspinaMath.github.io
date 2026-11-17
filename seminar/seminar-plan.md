@@ -134,26 +134,28 @@ Participants are encouraged to read §§1.1–1.3 beforehand. The meeting is int
 
 ## Core schedule
 
-The reading column is the presenter’s main assignment. Everyone else should read the section introductions, principal statements, and the presenter’s short guide. A technical chapter does not need to be reproduced line by line in a single meeting.
+The first meeting is a 60-minute overview: Carlos presents the arithmetic questions and selected results, followed by Chen’s introduction to their dynamical formulation. Later meetings develop the constructions and proofs in the paper’s order.
 
-| Meeting | Relevant §§ | Focus  | Speaker |
+The reading column is the speaker’s main assignment. Everyone else should read the section introductions, principal statements, and the speaker’s short guide. A technical chapter does not need to be reproduced line by line in a single meeting.
+
+| Meeting | Relevant §§ | Focus | Speaker |
 |---|---|---|---|
-| 1. Why this problem? | §§1.1–1.4, 1.6 | Define the biases, state Theorem 1.2, and draw the proof map. | Chen & Carlos |
-| 2. From arithmetic to genericity | §1.3, selected §1.4; Appendix A, pp. 145–148 | Derive the height/discrepancy identity; define ratio genericity; explain even CFE and bounded type. Use one explicit expansion. |  |
-| 3. Renormalization | §§2–4.2, pp. 27–36; Appendix B as needed | Explain the canonical matrix products, controlled fundamental domains, and uniform contraction. Show why renormalization depth is comparable to log T. Work through one matrix example. |  |
-| 4. Symbolic coding and jumps | §§5–6, pp. 36–44 | Explain the changing Markov partitions and modified integer coordinates. Show how geometric displacement becomes a sum of symbolic jump functions, up to controlled error. |  |
-| 5. The changing Markov chain | §7, pp. 44–49; Appendix D setup | Derive the transition law and explain uniform ellipticity and mixing. Identify exactly what changes with time. |  |
-| 6. Why the limit theorems apply | §8, pp. 49–56; relevant Appendix D statements | Explain structure constants, irreducibility, bounded drift, and variance comparable to n. Present one geometric argument in detail; map the other hypotheses to their proofs. |  |
-| 7. Returning from coding to orbit segments | §9, pp. 56–61; revisit §1.6.2 | Distinguish forward, backward, and symbolic walks. Explain conditioning on pure unstable segments and how it supports occupation estimates. |  |
-| 8. Temporal central and local limits | §10, pp. 61–67; Appendix D as needed | Explain the temporal CLT and local CLT, then recover Theorems 1.9 and 1.13. Track the factor 2 between discrepancy and height. |  |
-| 9. Change of measure and pressure | §§11.1–11.3, pp. 68–70; selected Appendix D | Explain exponential tilting and pressure derivatives. Show why a moving target may require a change of measure rather than a central Gaussian approximation. | Pressure/genericity lead |
-| 10. Comparing pressure descriptions | §§11.4–11.5, pp. 70–83 | State Proposition 11.7 precisely and explain the roles of its comparison lemmas. Prove one selected lemma; give a structured account of the rest. | Pressure/genericity lead |
-| 11. Sufficient conditions for genericity | §12.1, pp. 83–91 | Follow the route from finite tilt-parameter convergence to occupation ratios. Make the use of local estimates and cylinder approximations explicit. | Pressure/genericity lead |
-| 12. Necessary conditions for genericity | §12.2, pp. 91–100; revisit §1.6.4 | Explain why multiple finite limit points or infinite limit points obstruct genericity. Give the architecture of the extreme-target argument and one detailed step. | Pressure/genericity lead, with a respondent |
-| 13. Back to the arithmetic criterion | §12.3, pp. 100–106; §4.3; selected Appendix C, pp. 151–160 | Reconstruct Theorems 1.20 and 1.2. Explain the twist formula and derive Corollary 1.12, distinguishing local bias from global bias. | Organizer, with arithmetic/geometry lead |
-| 14. Synthesis and problems | Revisit §§1.2, 1.4, 1.6; proof locator p. 179 | Rebuild the whole proof together, explain which claims remain imported, discuss open problems, and decide whether to continue. | Short contributions from everyone |
+| 1. Arithmetic questions and dynamical formulation | §§1.1–1.3; selected §1.4 | **Carlos (30 min):** discrepancy; sign, global, and local bias; regular and even continued fractions; bounded type; Theorems 1.2 and 1.9, with further results as time permits. **Chen (30 min):** cylinder maps, the staircase, the matrices $A_n$ and sequence $z_n$; connections to equidistribution and the temporal CLT through Theorems 1.20 and 1.35. | Carlos & Chen |
+| 2. Genericity and the proof strategy | §§1.3–1.4, 1.6; Appendix A as needed | Develop the definitions introduced in the overview: ratio genericity, invariant measures, and the role of the specified initial point. Explain the renormalization and random-walk heuristic, the main obstacles, and the proof dependencies. Clarify continued-fraction background as needed. | |
+| 3. Renormalization | §§2–4.2, pp. 27–36; Appendix B as needed | Explain the canonical matrix products, controlled fundamental domains, and uniform contraction. Show why renormalization depth is comparable to $\log T$. Work through one matrix example. | |
+| 4. Symbolic coding and jumps | §§5–6, pp. 36–44 | Explain the changing Markov partitions and modified integer coordinates. Show how geometric displacement becomes a sum of symbolic jump functions, up to controlled error. | |
+| 5. The changing Markov chain | §7, pp. 44–49; Appendix D setup | Derive the transition law and explain uniform ellipticity and mixing. Identify exactly what changes with time. | |
+| 6. Why the limit theorems apply | §8, pp. 49–56; relevant Appendix D statements | Explain structure constants, irreducibility, bounded drift, and variance comparable to $n$. Present one geometric argument in detail; map the other hypotheses to their proofs. | |
+| 7. Returning from coding to orbit segments | §9, pp. 56–61; revisit §1.6.2 | Distinguish forward, backward, and symbolic walks. Explain conditioning on pure unstable segments and how it supports occupation estimates. | |
+| 8. Temporal central and local limits | §10, pp. 61–67; Appendix D as needed | Develop the proofs of the temporal CLT and local CLT, then recover Theorems 1.9 and 1.13. Track the factor $2$ between discrepancy and height. | |
+| 9. Change of measure and pressure | §§11.1–11.3, pp. 68–70; selected Appendix D | Explain exponential tilting and pressure derivatives. Show why a moving target may require a change of measure rather than a central Gaussian approximation. | |
+| 10. Comparing pressure descriptions | §§11.4–11.5, pp. 70–83 | State Proposition 11.7 precisely and explain the roles of its comparison lemmas. Prove one selected lemma; give a structured account of the rest. | |
+| 11. Sufficient conditions for genericity | §12.1, pp. 83–91 | Follow the route from finite tilt-parameter convergence to occupation ratios. Make the use of local estimates and cylinder approximations explicit. | |
+| 12. Necessary conditions for genericity | §12.2, pp. 91–100; revisit §1.6.4 | Explain why multiple finite limit points or infinite limit points obstruct genericity. Give the architecture of the extreme-target argument and one detailed step. | |
+| 13. Back to the arithmetic criterion | §12.3, pp. 100–106; §4.3; selected Appendix C, pp. 151–160 | Reconstruct Theorems 1.20 and 1.2. Explain the twist formula and derive Corollary 1.12, distinguishing local bias from global bias. | |
+| 14. Synthesis and problems | Revisit §§1.2, 1.4, 1.6; proof locator p. 179 | Rebuild the whole proof together, explain which results were used without proof, discuss open problems, and decide whether to continue. | Everyone |
 
-Keep one or two calendar weeks unassigned for spillover. Meetings 3, 6, 10, and 12 are likely pressure points. If the group wants complete proofs of the hardest constructions, split those meetings rather than increase weekly reading indefinitely.
+Meetings 3, 6, 10, and 12 are likely to need extra time. If the group wants complete proofs of the hardest constructions, split those meetings rather than increase weekly reading indefinitely.
 
 ## Assigning presentations with an unknown number of participants
 
