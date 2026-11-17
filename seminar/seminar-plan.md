@@ -16,7 +16,7 @@ The meeting time, location, and dates will be announced here. Slides and notes w
 
 ## About the paper
 
-For an irrational number $\alpha$, the sequence of fractional parts $\{j\alpha\}$ is equidistributed in the circle. Nevertheless, the counting errors
+For an irrational number $\alpha$, the sequence of fractional parts $\{j\alpha\}$ is equidistributed in the circle. Nevertheless, the discrepancies (error term)
 
 $$
 D_N(\alpha)
@@ -27,7 +27,7 @@ $$
 
 can exhibit several forms of bias. The paper studies these phenomena through linear flows on the infinite staircase, connecting continued-fraction renormalization, symbolic dynamics, and local limit theorems for inhomogeneous Markov chains.
 
-Our main route leads to the criterion for equidistribution of the discrepancy sequence in Theorem 1.2, through the characterization of generic points and the associated renormalization scheme. We will also study the temporal central and local limit theorems.
+Our main route leads to the criterion for equidistribution of the discrepancy sequence in Theorem 1.2. 
 
 ## First meeting
 
