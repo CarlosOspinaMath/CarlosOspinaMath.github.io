@@ -1,223 +1,70 @@
 # Reading seminar: Generic points on the staircase and irregularities in uniform distribution
 
-**Paper:** Dmitry Dolgopyat and Omri Sarig, *Generic Points on the Staircase and Irregularities in Uniform Distribution*, <a href="https://arxiv.org/abs/2609.33590" target="_blank" rel="noopener noreferrer">arXiv:2609.33590v1</a>, 27 September 2026, 184 pages.
+We are reading Dmitry Dolgopyat and Omri Sarig’s *Generic Points on the Staircase and Irregularities in Uniform Distribution*. The seminar aims to understand the main results, study the techniques behind them, and explore why the problems are interesting.
 
-**Background:** familiarity with ergodic theory, continued fractions, translation surfaces, and probability.
+**Paper:** [arXiv:2609.33590v1](https://arxiv.org/abs/2609.33590v1), 27 September 2026.
 
-**Format:** weekly, ±90 minutes; ±14 core meetings. Dates and participants remain to be arranged. The schedule below is a proposed plan, not the authors’ organization or a claim that every proof can be covered in 14 meetings. Page numbers refer to the printed pages of the arXiv v1 PDF.
+**Format:** weekly meetings of approximately 90 minutes, with a 60-minute introductory meeting. The proposed program has 14 meetings and may be adjusted as we progress.
 
-## Goals
+**Time and location:** to be announced.
 
-The seminar has three goals: understand the main results and their meaning; study the techniques that make the proofs work; and understand why the problems are interesting. At the end, we should be able to explain the questions, reconstruct the main proof, and present at least one substantial argument in detail.
+**Background:** familiarity with graduate-level ergodic theory. We will develop the continued-fraction, translation-surface, and probability tools as needed.
 
-Use Theorem 1.2 as the main destination: a criterion, expressed through even continued fractions, for the local discrepancy sequence to visit any two fixed half-integer levels with asymptotically equal frequencies. Its proof brings together the genericity characterization in Theorem 1.20 and the twist calculation in Theorem 4.5. Theorem 1.25 provides the broader genericity framework; Theorems 1.9–1.13 provide an illuminating parallel application to temporal limit laws.
+## News
 
-We should aim to understand the local limit theorems stated in Appendix D and check how their hypotheses are verified here. Proving those probability theorems from scratch would require a separate reading program in the authors’ 2023 monograph. Appendix C should be treated selectively: understand the geometric mechanism and work through one twist computation rather than reproduce every case.
+The meeting time, location, and dates will be announced here. Slides and notes will be added to the schedule as they become available.
 
-## Announcement email
+## About the paper
 
-**Subject:** Reading seminar on discrepancy, the infinite staircase, and generic points
-
-Hi everyone,
-
-We are starting a reading seminar on Dmitry Dolgopyat and Omri Sarig’s *Generic Points on the Staircase and Irregularities in Uniform Distribution* [arXiv:2609.33590v1](https://arxiv.org/abs/2609.33590).
-
-The starting question is simple: even though an irrational rotation is equidistributed, can the errors in counting visits to half the circle have a persistent bias? The paper connects this question to generic points for flows on the infinite staircase, using continued fraction expansions, symbolic dynamics, and theorems for inhomogeneous Markov chains.
-
-Our aim will be to understand the main results, learn the techniques behind them, and discuss why these problems are interesting. We’ll assume graduate-level ergodic theory and develop the other background as needed.
-
-I propose meeting weekly for 90 minutes, initially following a 14-meeting plan through the main proof ideas. Participants will take turns presenting connected parts of the paper. I’ll give the opening talk and present again later in the seminar.
-
-If you’re interested, please reply with your availability, relevant background, and any part of the paper you would especially like to present. We’ll settle the meeting time and divide the presentations once we know who is joining.
-
-The paper is attached, and I’ll share the proposed reading schedule before we begin.
-
-Best,
-
-Organizers
-
-## Introduction
-
-Start with an irrational number $\alpha$. Weyl’s theorem tells us that the sequence of fractional parts $\{j\alpha\}$ is equidistributed in the circle. In particular, roughly half of the first $N$ points lie in the interval $[0, 1/2)$.
-
-Let
+For an irrational number $\alpha$, the sequence of fractional parts $\{j\alpha\}$ is equidistributed in the circle. Nevertheless, the counting errors
 
 $$
 D_N(\alpha)
 =
-\#\left\{0 \le j < N : \{j\alpha\} \in [0, 1/2)\right\}
--
-\frac{N}{2}.
+\#\left\{0 \le j < N : \{j\alpha\} \in [0,1/2)\right\}
+-\frac{N}{2}
 $$
 
-Weyl’s theorem says $\frac{D_N(\alpha)}{N}$ tends to zero. But that leaves open almost everything about the error itself. Does it stay mostly positive? Does its histogram drift away from zero? Does it visit two fixed values equally often?
+can exhibit several forms of bias. The paper studies these phenomena through linear flows on the infinite staircase, connecting continued-fraction renormalization, symbolic dynamics, and local limit theorems for inhomogeneous Markov chains.
 
-These are different questions. The paper distinguishes sign bias, global bias, and local bias. For the last question, note that every $D_N$ belongs to the half-integers $\frac{1}{2}\mathbb{Z}$. We ask whether, for every fixed pair $\zeta_1$ and $\zeta_2$ in $\frac{1}{2}\mathbb{Z}$,
+Our main route leads to the criterion for equidistribution of the discrepancy sequence in Theorem 1.2, through the characterization of generic points and the associated renormalization scheme. We will also study the temporal central and local limit theorems.
 
-$$
-\frac{
-\#\left\{1 \le N \le n : D_N(\alpha) = \zeta_1\right\}
-}{
-\#\left\{1 \le N \le n : D_N(\alpha) = \zeta_2\right\}
-}
-\longrightarrow 1
-\qquad \text{as } n \to \infty.
-$$
+## First meeting
 
-This is a ratio statement. There is no uniform probability measure on an infinite lattice, and we are not claiming that each level has a positive limiting frequency. The paper’s Table 1 gives a striking contrast: $\sqrt{3}$ has none of the three biases, whereas $\sqrt{2}$ has all three.
+The opening meeting consists of two 30-minute presentations:
 
-The main theorem gives an explicit criterion when $\alpha$ has bounded continued-fraction coefficients. Expand $\beta = 2\alpha - 1$ in its even continued fraction,
+- **Carlos — Discrepancy and bias:** local discrepancy; sign, global, and local bias; continued fractions and bounded type; the equidistribution criterion and temporal CLT (Theorems 1.2 and 1.9).
+- **Chen — The dynamical formulation:** cylinder maps, the infinite staircase, the renormalizing matrices $A_n$ and height sequence $z_n$; their connections to equidistribution and the temporal CLT (Theorems 1.20 and 1.35).
 
-$$
-\beta = [2m_0; 2m_1, 2m_2, \ldots].
-$$
+**Suggested preparation:** §§1.1–1.3.
 
-Then equal-frequency ratios hold exactly when
+## Schedule and meeting materials
 
-$$
-\frac{1}{n}
-\sum_{j=1}^{n}
-\left[
-\operatorname{sgn}(m_{2j})
--
-\operatorname{sgn}(m_{2j-1})
-\right]
-\longrightarrow 0
-\qquad \text{as } n \to \infty.
-$$
+The schedule is provisional. Unassigned speakers are marked “TBA”; a dash in the materials column means that no materials have been posted yet. Section and page references refer to the arXiv v1 PDF.
 
-One goal of our seminar is to understand why this arithmetic sign average governs the counting errors.
+| Meeting | Topic | Reading | Speaker | Slides and notes |
+|---|---|---|---|---|
+| 1 | Arithmetic questions and dynamical formulation | §§1.1–1.3; selected §1.4 | Carlos & Chen | — |
+| 2 | Genericity and the proof strategy | §§1.3–1.4, 1.6; Appendix A as needed | TBA | — |
+| 3 | Renormalization | §§2–4.2, pp. 27–36; Appendix B as needed | TBA | — |
+| 4 | Symbolic coding and jumps | §§5–6, pp. 36–44 | TBA | — |
+| 5 | The changing Markov chain | §7, pp. 44–49; Appendix D setup | TBA | — |
+| 6 | Why the limit theorems apply | §8, pp. 49–56; relevant Appendix D statements | TBA | — |
+| 7 | From coding back to orbit segments | §9, pp. 56–61; §1.6.2 | TBA | — |
+| 8 | Temporal central and local limits | §10, pp. 61–67; Appendix D as needed | TBA | — |
+| 9 | Change of measure and pressure | §§11.1–11.3, pp. 68–70; selected Appendix D | TBA | — |
+| 10 | Comparing pressure descriptions | §§11.4–11.5, pp. 70–83 | TBA | — |
+| 11 | Sufficient conditions for genericity | §12.1, pp. 83–91 | TBA | — |
+| 12 | Necessary conditions for genericity | §12.2, pp. 91–100; §1.6.4 | TBA | — |
+| 13 | Back to the arithmetic criterion | §12.3, pp. 100–106; §4.3; selected Appendix C, pp. 151–160 | TBA | — |
+| 14 | Synthesis and open problems | §§1.2, 1.4, 1.6; proof locator p. 179 | Everyone | — |
 
-The first bridge is elementary. Define $\tau(x)$ to be $+1$ in the first half of the circle and $-1$ in the second. Consider the cylinder map
+## Reading and participation
 
-$$
-T_\alpha(x,k)
-=
-\left(\{x+\alpha\},\, k+\tau(x)\right).
-$$
+Participants take turns presenting. Before each meeting, read the relevant section introductions and principal statements, together with any preparation suggested by the speaker. Presentations will explain the main constructions and develop selected arguments in detail.
 
-Starting at $(0,0)$, its height after $N$ steps is exactly $2D_N(\alpha)$. Counting the times the discrepancy equals a given value becomes counting visits to a given height. Suspending this map leads to a linear flow on the infinite staircase, an infinite-area translation surface.
+The probability results summarized in Appendix D will be used with attention to their hypotheses; proving all of them from scratch is outside the core program.
 
-This reformulation exposes the conceptual difficulty. An ergodic theorem can describe almost every starting point, but our arithmetic question singles out the starting point $(0,0)$. We need a way to decide whether this particular point is generic. Since the natural measures are infinite, genericity is expressed through ratios of occupation integrals.
+## Further topics
 
-The proof uses renormalization to shorten a long orbit segment to a manageable size. Continued fractions supply the sequence of transformations. Symbolic dynamics then converts the relevant displacement into an additive functional of a Markov chain whose transition rules change with time.
-
-This is where probability enters a deterministic problem. A central limit theorem describes broad windows near the moving center. To compare visits to individual levels, and to treat targets away from that center, one needs local limit estimates and exponential changes of measure. The authors must also handle points for which the useful estimates break down, showing that the appropriate extreme behavior rules out genericity.
-
-So our route will be: understand the counting question; understand the geometric model; build the symbolic and probabilistic machinery; and return to the arithmetic criterion. We’ll aim to explain why each tool is needed and prove selected key steps carefully.
-
-## First meeting: introduction to the paper
-
-The first meeting will be a 60-minute overview, divided into two parts following the introduction of the paper. We will introduce the main objects and selected results, keeping proofs and technical constructions for later meetings.
-
-### Part 1: Discrepancy and bias — Carlos (30 minutes)
-
-Reading: §§1.1–1.2.
-
-- Define the local discrepancy $D_N(\alpha)$ and explain the distinction between sign bias, global bias, and local bias.
-- Introduce regular and even continued-fraction expansions and the bounded-type assumption.
-- State the equidistribution criterion (Theorem 1.2), using the examples in the introduction to illustrate it.
-- Introduce the temporal CLT (Theorem 1.9) and explain how its centering measures global bias.
-- If time permits, discuss the centering formula (Theorem 1.10) and the relationship between local and global bias (Corollary 1.12).
-
-### Part 2: The dynamical formulation — Chen (30 minutes)
-
-Reading: §1.3 and selected results from §1.4.
-
-- Introduce the cylinder map and explain how its height records discrepancy.
-- Describe the infinite staircase and its connection to the cylinder map.
-- Introduce the renormalizing matrices $A_n$ and the height sequence $z_n$.
-- Explain how the genericity criterion (Theorem 1.20) relates to equidistribution of the discrepancy sequence.
-- Describe the dynamical temporal CLT (Theorem 1.35) and its connection to the arithmetic CLT.
-
-Participants are encouraged to read §§1.1–1.3 beforehand. The meeting is intended to establish the questions and the connections between the arithmetic and dynamical viewpoints.
-
-## Core schedule
-
-The first meeting is a 60-minute overview: Carlos presents the arithmetic questions and selected results, followed by Chen’s introduction to their dynamical formulation. Later meetings develop the constructions and proofs in the paper’s order.
-
-The reading column is the speaker’s main assignment. Everyone else should read the section introductions, principal statements, and the speaker’s short guide. A technical chapter does not need to be reproduced line by line in a single meeting.
-
-| Meeting | Relevant §§ | Focus | Speaker |
-|---|---|---|---|
-| 1. Arithmetic questions and dynamical formulation | §§1.1–1.3; selected §1.4 | **Carlos (30 min):** discrepancy; sign, global, and local bias; regular and even continued fractions; bounded type; Theorems 1.2 and 1.9, with further results as time permits. **Chen (30 min):** cylinder maps, the staircase, the matrices $A_n$ and sequence $z_n$; connections to equidistribution and the temporal CLT through Theorems 1.20 and 1.35. | Carlos & Chen |
-| 2. Genericity and the proof strategy | §§1.3–1.4, 1.6; Appendix A as needed | Develop the definitions introduced in the overview: ratio genericity, invariant measures, and the role of the specified initial point. Explain the renormalization and random-walk heuristic, the main obstacles, and the proof dependencies. Clarify continued-fraction background as needed. | |
-| 3. Renormalization | §§2–4.2, pp. 27–36; Appendix B as needed | Explain the canonical matrix products, controlled fundamental domains, and uniform contraction. Show why renormalization depth is comparable to $\log T$. Work through one matrix example. | |
-| 4. Symbolic coding and jumps | §§5–6, pp. 36–44 | Explain the changing Markov partitions and modified integer coordinates. Show how geometric displacement becomes a sum of symbolic jump functions, up to controlled error. | |
-| 5. The changing Markov chain | §7, pp. 44–49; Appendix D setup | Derive the transition law and explain uniform ellipticity and mixing. Identify exactly what changes with time. | |
-| 6. Why the limit theorems apply | §8, pp. 49–56; relevant Appendix D statements | Explain structure constants, irreducibility, bounded drift, and variance comparable to $n$. Present one geometric argument in detail; map the other hypotheses to their proofs. | |
-| 7. Returning from coding to orbit segments | §9, pp. 56–61; revisit §1.6.2 | Distinguish forward, backward, and symbolic walks. Explain conditioning on pure unstable segments and how it supports occupation estimates. | |
-| 8. Temporal central and local limits | §10, pp. 61–67; Appendix D as needed | Develop the proofs of the temporal CLT and local CLT, then recover Theorems 1.9 and 1.13. Track the factor $2$ between discrepancy and height. | |
-| 9. Change of measure and pressure | §§11.1–11.3, pp. 68–70; selected Appendix D | Explain exponential tilting and pressure derivatives. Show why a moving target may require a change of measure rather than a central Gaussian approximation. | |
-| 10. Comparing pressure descriptions | §§11.4–11.5, pp. 70–83 | State Proposition 11.7 precisely and explain the roles of its comparison lemmas. Prove one selected lemma; give a structured account of the rest. | |
-| 11. Sufficient conditions for genericity | §12.1, pp. 83–91 | Follow the route from finite tilt-parameter convergence to occupation ratios. Make the use of local estimates and cylinder approximations explicit. | |
-| 12. Necessary conditions for genericity | §12.2, pp. 91–100; revisit §1.6.4 | Explain why multiple finite limit points or infinite limit points obstruct genericity. Give the architecture of the extreme-target argument and one detailed step. | |
-| 13. Back to the arithmetic criterion | §12.3, pp. 100–106; §4.3; selected Appendix C, pp. 151–160 | Reconstruct Theorems 1.20 and 1.2. Explain the twist formula and derive Corollary 1.12, distinguishing local bias from global bias. | |
-| 14. Synthesis and problems | Revisit §§1.2, 1.4, 1.6; proof locator p. 179 | Rebuild the whole proof together, explain which results were used without proof, discuss open problems, and decide whether to continue. | Everyone |
-
-Meetings 3, 6, 10, and 12 are likely to need extra time. If the group wants complete proofs of the hardest constructions, split those meetings rather than increase weekly reading indefinitely.
-
-## Assigning presentations with an unknown number of participants
-
-Assign connected blocks after collecting availability and interests. These are responsibilities, not permanent restrictions on who may speak.
-
-| Block | Meetings | Suggested responsibility |
-|---|---|---|
-| Motivation and synthesis | 1, 13, shared 14 | Organizer; learn the twist calculation with another participant. |
-| Arithmetic and renormalization | 2–3 | One participant or a pair; coordinate closely with the coding speakers. |
-| Symbolic and probabilistic bridge | 4–5, 7 | One participant or a pair; keep one common notation guide. |
-| Limit laws | 6, 8 | One participant; introduce only the Appendix D machinery actually used. |
-| Pressure and genericity | 9–12 | Prefer two participants, one handling pressure comparisons and one the genericity arguments. |
-
-With **three people total**, the organizer can take 1–3 and 13; a second person 4–5, 7, and 9–10; a third 6, 8, and 11–12. This is a substantial commitment, so allow co-presentations and spillover.
-
-With **four or five people**, divide the five blocks sensibly, sharing the pressure/genericity block if possible. With **six or more**, split that block first, then split renormalization from arithmetic. Rotate respondents so each speaker has someone who has checked the main argument beforehand.
-
-## A repeatable meeting format
-
-For meetings after the opening:
-
-- **10 minutes:** motivation, recap, and the statement this meeting is meant to establish.
-- **50 minutes:** one main construction or argument, with interruptions for questions.
-- **20 minutes:** a worked example, a proof repair, or collective discussion of a difficult step.
-- **10 minutes:** what was proved, what was imported, unresolved questions, and the handoff to the next speaker.
-
-Three days before presenting, share a short guide with: prerequisites; the two or three principal statements; the proof’s main steps; one worked example or lemma; and what will be used without proof. State clearly which parts everyone should read.
-
-Maintain shared notes with four running items: a notation glossary, a theorem dependency map, a list of imported results, and a questions list. Aim for a useful one-page record per meeting rather than a second monograph.
-
-At the end of each talk, ask: What problem did this step solve? Where did bounded type enter? What will the next step use?
-
-## Technical checkpoints
-
-1. **After meeting 3:** everyone can explain the exact initial-point obstacle and why the relevant depth is logarithmic in physical time.
-2. **After meeting 7:** everyone can explain where the probability comes from, why the increments are neither IID nor stationary in general, and how the coding connects back to orbit segments.
-3. **After meeting 10:** everyone can explain why a CLT alone does not establish fixed-level ratios, and what pressure and tilting add.
-4. **After meeting 13:** everyone can trace the arithmetic criterion through the genericity theorem and the twist formula, and explain the two different scales in Corollary 1.12.
-
-If a checkpoint fails, use a workshop before adding another technical layer.
-
-## Questions and short exercises
-
-- Derive the identity height(T_α^N(0,0)) = 2D_N(α), including the indexing convention.
-- Explain why ratio equidistribution on an infinite lattice does not specify positive limiting frequencies.
-- Check the even-CFE examples for √3 and √7 in §1.2.1 and evaluate the sign-average criterion.
-- Illustrate why a CLT does not determine the probability of one lattice value; include a parity obstruction example.
-- Explain how variance of order n at renormalization depth n leads to fluctuations of order √log T in physical time.
-- Use a sign sum of order n^(2/3), as in the proof of Corollary 1.12, to distinguish the local-bias and global-bias criteria.
-- Explain why genericity for area does not force asymptotically equal time in the positive and negative halves of the staircase; see Remark 1.24 and Corollary 1.38.
-
-For the last meeting, discuss the paper’s open questions: can unbounded-type α yield non-exponential tilt profiles (§1.2.2)? Does convergence of the occupation ratio for just neighboring rectangles suffice for genericity (after Theorem 1.25)? Which ingredients of the framework might extend to the non-renormalizable setting described in §1.7? The last is a discussion direction, not an established theorem of this paper.
-
-## Optional continuation
-
-Choose according to interests; these are additional topics, not hidden prerequisites for completing the core seminar.
-
-- **Ergodic integrals:** §13, pp. 106–123. Allow two meetings if studying the distributional results in detail. Distinguish randomness in the initial point from the random-time sampling in temporal limit laws.
-- **Constructing prescribed tilt:** §14, pp. 123–135. Allow two meetings for the construction behind Theorems 1.26 and 1.4.
-- **Dimension and category:** §15, pp. 135–144. Allow one or two meetings to explore how measure-zero exceptional behavior can have full Hausdorff dimension or be residual.
-- **Deeper probability:** select a result from Appendix D and consult its proof in the cited 2023 monograph. Set a separate reading scope before committing.
-
-## Organizer’s next steps
-
-Send the invitation with the paper; collect availability and presentation interests; choose a weekly slot; allocate the first few blocks; share this plan; and prepare the opening talk. Confirm the later assignments after the renormalization checkpoint, when the group has a better sense of the pace.
+Depending on the group’s interests, we may continue with ergodic integrals (§13), constructions with prescribed tilt (§14), or the Hausdorff dimension and Baire category of generic and non-generic points (§15).
