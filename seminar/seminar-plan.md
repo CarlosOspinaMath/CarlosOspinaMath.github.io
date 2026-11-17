@@ -58,8 +58,8 @@ The schedule is provisional. Unassigned speakers are marked “TBA”; a dash in
 | 8 | Temporal central and local limits | §10, pp. 61–67; Appendix D as needed | TBA | — |
 | 9 | Change of measure and pressure | §§11.1–11.3, pp. 68–70; selected Appendix D | TBA | — |
 | 10 | Comparing pressure descriptions | §§11.4–11.5, pp. 70–83 | TBA | — |
-| 11 | Sufficient conditions for genericity | §12.1, pp. 83–91 | TBA | — |
-| 12 | Necessary conditions for genericity | §12.2, pp. 91–100; §1.6.4 | TBA | — |
+| 11 | Sufficient conditions | §12.1, pp. 83–91 | TBA | — |
+| 12 | Necessary conditions | §12.2, pp. 91–100; §1.6.4 | TBA | — |
 | 13 | Back to the arithmetic criterion | §12.3, pp. 100–106; §4.3; selected Appendix C, pp. 151–160 | TBA | — |
 | 14 | Synthesis and open problems | §§1.2, 1.4, 1.6; proof locator p. 179 | Everyone | — |
 
