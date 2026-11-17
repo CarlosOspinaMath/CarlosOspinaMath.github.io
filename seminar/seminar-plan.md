@@ -16,8 +16,6 @@ The meeting time, location, and dates will be announced here. Slides and notes w
 
 **19 November 2026 — First meeting:** Thursday, 10:00–11:00. The meeting will take place at Tel Aviv University; the room will be announced soon.
 
-**Suggested reading:** §§1.1–1.3.
-
 ## About the paper
 
 For an irrational number $\alpha$, the sequence of fractional parts $\{j\alpha\}$ is equidistributed in the circle. Nevertheless, the discrepancies (error term)
