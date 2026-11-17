@@ -29,7 +29,7 @@ D_N(\alpha)
 -\frac{N}{2}
 $$
 
-can exhibit several forms of bias. The paper studies these phenomena through linear flows on the infinite staircase, connecting continued-fraction renormalization, symbolic dynamics, and local limit theorems for inhomogeneous Markov chains.
+can exhibit several forms of bias. The paper studies these phenomena through linear flows on the infinite staircase, connecting continued fractions, renormalization, symbolic dynamics, and limit theorems for Markov chains.
 
 Our main route leads to the criterion for equidistribution of the discrepancy sequence in Theorem 1.2. 
 
@@ -55,7 +55,7 @@ The schedule is provisional. Unassigned speakers are marked “TBA”; a dash in
 | 5 | The changing Markov chain | §7, pp. 44–49; Appendix D setup | TBA | — |
 | 6 | Why the limit theorems apply | §8, pp. 49–56; relevant Appendix D statements | TBA | — |
 | 7 | From coding back to orbit segments | §9, pp. 56–61; §1.6.2 | TBA | — |
-| 8 | Temporal central and local limits | §10, pp. 61–67; Appendix D as needed | TBA | — |
+| 8 | Central and local limits | §10, pp. 61–67; Appendix D as needed | TBA | — |
 | 9 | Change of measure and pressure | §§11.1–11.3, pp. 68–70; selected Appendix D | TBA | — |
 | 10 | Comparing pressure descriptions | §§11.4–11.5, pp. 70–83 | TBA | — |
 | 11 | Sufficient conditions | §12.1, pp. 83–91 | TBA | — |
