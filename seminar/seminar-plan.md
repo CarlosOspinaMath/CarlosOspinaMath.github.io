@@ -1,3 +1,11 @@
+<script>
+  document.documentElement.lang = 'en';
+  window.MathJax = {
+    options: {
+      enableAssistiveMml: false
+    }
+  };
+</script>
 <script src="/mathjax.js" defer></script>
 
 # Reading seminar: Generic points on the staircase and irregularities in uniform distribution
