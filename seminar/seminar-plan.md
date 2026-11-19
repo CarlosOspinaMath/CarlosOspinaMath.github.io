@@ -26,6 +26,8 @@ The meeting time, location, and dates will be announced here. Slides and notes w
 
 **19 November 2026 — First meeting:** Thursday, 10:00–11:00, in room 209 of the Schreiber Building, Tel Aviv University.
 
+**26 November 2026:** Thursday, 10:00–11:00, in room 309 of the Schreiber Building. Note that it is not the same room as the previous week.
+
 ## About the paper
 
 For an irrational number $\alpha$, the sequence of fractional parts $\{j\alpha\}$ is equidistributed in the circle. Nevertheless, the discrepancies (error term)
@@ -41,14 +43,6 @@ can exhibit several forms of bias. The paper studies these phenomena through lin
 
 Our main route leads to the criterion for equidistribution of the discrepancy sequence in Theorem 1.2. 
 
-## First meeting
-
-The opening meeting consists of two 30-minute presentations:
-
-- **Carlos — Discrepancy and bias:** local discrepancy; sign, global, and local bias; continued fractions and bounded type; the equidistribution criterion and temporal CLT (Theorems 1.2 and 1.9).
-- **Chen — The dynamical formulation:** cylinder maps, the infinite staircase, the renormalizing matrices $A_n$ and height sequence $z_n$; their connections to equidistribution and the temporal CLT (Theorems 1.20 and 1.35).
-
-**Suggested preparation:** §§1.1–1.3.
 
 ## Schedule and meeting materials
 
