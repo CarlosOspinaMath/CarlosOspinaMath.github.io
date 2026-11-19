@@ -24,7 +24,7 @@ We are reading Dmitry Dolgopyat and Omri Sarig’s *Generic Points on the Stairc
 
 The meeting time, location, and dates will be announced here. Slides and notes will be added to the schedule as they become available.
 
-**19 November 2026 — First meeting:** Thursday, 10:00–11:00. The meeting will take place at Tel Aviv University; the room will be announced soon.
+**19 November 2026 — First meeting:** Thursday, 10:00–11:00, in room 209 of the Schreiber Building, Tel Aviv University.
 
 ## About the paper
 
