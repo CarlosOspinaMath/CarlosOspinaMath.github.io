@@ -51,9 +51,9 @@ The schedule is provisional. Unassigned speakers are marked “TBA”; a dash in
 | Meeting | Topic | Reading | Speaker | Slides and notes |
 |---|---|---|---|---|
 | 1 | Arithmetic questions and dynamical formulation | §§1.1–1.3; selected §1.4 | Carlos & Chen | [Part I](discrepancies_and_bias.pdf)<br>[Part II](from_the_cylinder_map_to_the_staircase.pdf) |
-| 2 | The proof strategy | §§1.3–1.4, 1.6; Appendix A as needed | TBA | — |
-| 3 | Renormalization | §§2–4.2, pp. 27–36; Appendix B as needed | TBA | — |
-| 4 | Symbolic coding and jumps | §§5–6, pp. 36–44 | TBA | — |
+| 2 | The proof strategy | §§1.3–1.4, 1.6; Appendix A as needed | Chen | — |
+| 3 | Renormalization | §§2–4.2, pp. 27–36; Appendix B as needed | Yonatan | — |
+| 4 | Symbolic coding and jumps | §§5–6, pp. 36–44 | Carlos | — |
 | 5 | The changing Markov chain | §7, pp. 44–49; Appendix D setup | TBA | — |
 | 6 | Why the limit theorems apply | §8, pp. 49–56; relevant Appendix D statements | TBA | — |
 | 7 | From coding back to orbit segments | §9, pp. 56–61; §1.6.2 | TBA | — |
