@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Translation Surface Deformations</title>
+
+<style>
+:root {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #222936;
+  background: #f5f6f8;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+header {
+  padding: 18px 26px;
+  background: white;
+  border-bottom: 1px solid #dfe3e8;
+}
+h1 { margin: 0 0 5px; font-size: 23px; }
+.subtitle { color: #697386; font-size: 13px; }
+.layout {
+  display: grid;
+  grid-template-columns: 300px minmax(0,1fr);
+  gap: 18px;
+  padding: 18px;
+}
+aside, .panel {
+  background: white;
+  border: 1px solid #dfe3e8;
+  border-radius: 12px;
+  padding: 18px;
+}
+aside { align-self: start; position: sticky; top: 15px; }
+h2 { font-size: 15px; margin: 0 0 15px; }
+h3 { font-size: 13px; margin: 22px 0 12px; }
+.control { margin: 15px 0; }
+.control label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+  margin-bottom: 7px;
+}
+output { font-weight: 600; font-variant-numeric: tabular-nums; }
+input[type=range] { width: 100%; accent-color: #3567b7; }
+.buttons { display: flex; gap: 8px; margin-top: 20px; }
+button {
+  border: 1px solid #cbd3df;
+  border-radius: 7px;
+  background: white;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+button:hover { background: #edf2fa; }
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 12px;
+}
+.options label { display: flex; align-items: center; gap: 5px; }
+.panel { margin-bottom: 16px; overflow: hidden; }
+.formula {
+  font-size: 17px;
+  line-height: 2;
+  margin-bottom: 10px;
+  overflow-x: auto;
+}
+.surface {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.caption { color: #7b8490; font-size: 12px; }
+#error {
+  display: none;
+  margin: 15px 18px;
+  padding: 12px;
+  border: 1px solid #e6aaaa;
+  background: #fff0f0;
+  color: #a32222;
+  border-radius: 8px;
+  white-space: pre-wrap;
+}
+@media(max-width:800px) {
+  .layout { grid-template-columns: 1fr; }
+  aside { position: static; }
+}
+</style>
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(', '\\)']]
+  },
+  svg: {
+    fontCache: 'none'
+  },
+  startup: {
+    typeset: true
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>Real Deformations of a Translation Surface</h1>
+  <div class="subtitle">
+    \( \mathrm{SL}_2(\mathbb{R}) \) and real deformations of \(M_0\)
+  </div>
+</header>
+
+<div id="error"></div>
+
+<div class="layout">
+<aside>
+  <h2>Parameters</h2>
+
+  <h3>Matrix A = s R(θ) U(u) D(t)</h3>
+  <div id="matrixControls"></div>
+
+  <h3>Cohomology class β</h3>
+  <div id="betaControls"></div>
+
+  <h3>Presets</h3>
+  <div id="presets"></div>
+
+  <div class="buttons">
+    <button id="reset">Reset</button>
+    <button id="zeroBeta">Set β = 0</button>
+  </div>
+
+  <div class="options">
+    <label><input type="checkbox" id="showEdges" checked>
+      Edge labels</label>
+    <label><input type="checkbox" id="showCells" checked>
+      Cell labels</label>
+    <label><input type="checkbox" id="showArrows" checked>
+      Arrows</label>
+    <label><input type="checkbox" id="showPoints" checked>
+      Singularities</label>
+    <label><input type="checkbox" id="showInternalLabels">
+    Internal edge labels</label>
+  </div>
+</aside>
+
+<main>
+  <section class="panel">
+    <h2>Surface \(M_0\)</h2>
+    <svg id="surface0" class="surface"></svg>
+  </section>
+
+  <section class="panel">
+    <h2>\( \mathrm{SL}_2(\mathbb{R}) \)-action</h2>
+    <div id="matrixFormula" class="formula"></div>
+    <svg id="surface1" class="surface"></svg>
+  </section>
+
+  <section class="panel">
+    <h2>Real deformation</h2>
+    <div id="betaFormula" class="formula"></div>
+    <svg id="surface2" class="surface"></svg>
+    <div class="caption">
+      \( \beta \) changes the horizontal components of holonomies.
+    </div>
+  </section>
+</main>
+</div>
+
+<script>
+(() => {
+"use strict";
+
+// ============================================================
+// PARAMETERS
+// ============================================================
+
+const defaults = {
+  s: 1,
+  theta: 1 / (9 * Math.sqrt(2)),
+  u: 0.5,
+  t: Math.log(1.5),
+  x1: -0.25,
+  x2: -0.25,
+  x3: 0.25,
+  x4: 1
+};
+
+let state = {...defaults};
+
+const parameters = [
+  ["s", "Scale s", 0.2, 3, 0.01],
+  ["theta", "Rotation θ = rπ", -1, 1, 0.01],
+  ["u", "Shear u", -2, 2, 0.01],
+  ["t", "Diagonal t", -1.5, 1.5, 0.01],
+  ["x1", "x₁ · Re(ω₁)", -2, 2, 0.01],
+  ["x2", "x₂ · Im(ω₁)", -2, 2, 0.01],
+  ["x3", "x₃ · Re(ω₂)", -2, 2, 0.01],
+  ["x4", "x₄ · Im(ω₂)", -2, 2, 0.01]
+];
+
+const presets = {
+  "Original": {
+    s:1, theta:0, u:0, t:0,
+    x1:0,x2:0,x3:0,x4:0
+  },
+  "Rotation": {
+    s:1, theta:1/4, u:0, t:0,
+    x1:0,x2:0,x3:0,x4:0
+  },
+  "Shear": {
+    s:1, theta:0, u:0.5, t:0,
+    x1:0,x2:0,x3:0,x4:0
+  },
+  "Diagonal": {
+    s:1, theta:0, u:0, t:Math.log(1.5),
+    x1:0,x2:0,x3:0,x4:0
+  },
+  "Beta": {
+    s:1, theta:0, u:0, t:0,
+    x1:-0.25,x2:-0.25,x3:0.25,x4:1
+  }
+};
+
+function format(n) {
+  if(Math.abs(n)<1e-9) return "0";
+  return Number(n.toFixed(3)).toString();
+}
+
+function nonzero(n) {
+  return Math.abs(n)>1e-9;
+}
+
+function makeControls() {
+  for(const [name,label,min,max,step] of parameters) {
+    const div=document.createElement("div");
+    div.className="control";
+
+    const lab=document.createElement("label");
+    lab.htmlFor=name;
+
+    const span=document.createElement("span");
+    span.textContent=label;
+
+    const output=document.createElement("output");
+    output.id=name+"Value";
+
+    lab.append(span,output);
+
+    const slider=document.createElement("input");
+    slider.type="range";
+    slider.id=name;
+    slider.min=min;
+    slider.max=max;
+    slider.step=step;
+    slider.value=state[name];
+
+    slider.addEventListener("input",()=>{
+      state[name]=Number(slider.value);
+      render();
+    });
+
+    div.append(lab,slider);
+
+    document.getElementById(
+      name.startsWith("x")?"betaControls":"matrixControls"
+    ).appendChild(div);
+  }
+
+  const container=document.getElementById("presets");
+
+  for(const [name,values] of Object.entries(presets)) {
+    const button=document.createElement("button");
+    button.textContent=name;
+    button.style.margin="3px";
+
+    button.onclick=()=>{
+      state={...values};
+      syncSliders();
+      render();
+    };
+
+    container.appendChild(button);
+  }
+}
+
+function syncSliders() {
+  for(const [name] of parameters)
+    document.getElementById(name).value=state[name];
+}
+
+// ============================================================
+// COMPLEX ARITHMETIC
+// ============================================================
+
+const C=(re,im=0)=>({re,im});
+
+const add=(z,w)=>C(z.re+w.re,z.im+w.im);
+const sub=(z,w)=>C(z.re-w.re,z.im-w.im);
+
+const mul=(z,w)=>C(
+  z.re*w.re-z.im*w.im,
+  z.re*w.im+z.im*w.re
+);
+
+function div(z,w) {
+  const d=w.re*w.re+w.im*w.im;
+  return C(
+    (z.re*w.re+z.im*w.im)/d,
+    (z.im*w.re-z.re*w.im)/d
+  );
+}
+
+function cpow(z,n) {
+  let result=C(1);
+  for(let i=0;i<n;i++) result=mul(result,z);
+  return result;
+}
+
+// ============================================================
+// COHOMOLOGY CLASSES
+// ============================================================
+
+const one=C(1);
+const zero=C(0);
+
+const lambda=C(
+  Math.cos(Math.PI/4),
+  Math.sin(Math.PI/4)
+);
+
+const L2=cpow(lambda,2);
+const L3=cpow(lambda,3);
+const denominator=sub(one,L3);
+
+function basis(u,v) {
+  const e1=u;
+  const e2=v;
+
+  const e3=div(
+    add(
+      mul(sub(lambda,one),u),
+      mul(sub(L2,one),v)
+    ),
+    denominator
+  );
+
+  const e4=div(
+    add(
+      mul(sub(L3,lambda),u),
+      mul(sub(L3,L2),v)
+    ),
+    denominator
+  );
+
+  return [e1,e2,e3,e4];
+}
+
+const omega1=basis(one,zero);
+const omega2=basis(zero,one);
+
+function omegaValue(omega,k,j) {
+  return mul(cpow(lambda,k%8),omega[j-1]);
+}
+
+function beta(k,j) {
+  const w1=omegaValue(omega1,k,j);
+  const w2=omegaValue(omega2,k,j);
+
+  return state.x1*w1.re+
+         state.x2*w1.im+
+         state.x3*w2.re+
+         state.x4*w2.im;
+}
+
+// ============================================================
+// EDGE DEFINITIONS
+// ============================================================
+
+const E=(k,j)=>({k:k%8,j});
+
+const bottomTop=[
+  E(0,1),E(1,1),E(2,1),E(3,1),
+  E(4,1),E(5,1),E(6,1),E(7,1)
+];
+
+const bottomBottom=[
+  E(0,3),E(3,3),E(2,3),E(5,3),
+  E(4,3),E(7,3),E(6,3),E(1,3)
+];
+
+const bottomVertical=[
+  E(0,2),E(0,4),E(2,2),
+  E(2,4),E(4,2),E(4,4),
+  E(6,2),E(6,4),E(0,2)
+];
+
+const topTop=[
+  E(2,3),E(7,3),E(0,3),E(5,3),
+  E(6,3),E(3,3),E(4,3),E(1,3)
+];
+
+const topBottom=[
+  E(0,1),E(7,1),E(6,1),E(5,1),
+  E(4,1),E(3,1),E(2,1),E(1,1)
+];
+
+const topVertical=[
+  E(1,2),E(7,4),E(7,2),
+  E(5,4),E(5,2),E(3,4),
+  E(3,2),E(1,4),E(1,2)
+];
+
+const bottom=[];
+const top=[];
+
+for(let col=0;col<8;col++) {
+  bottom.push({
+    k:col,
+    s:col%2===0?1:2,
+    row:"bottom",
+    col,
+    bottom:bottomBottom[col],
+    right:bottomVertical[col+1],
+    top:bottomTop[col],
+    left:bottomVertical[col]
+  });
+
+  top.push({
+    k:(8-col)%8,
+    s:col%2===0?2:1,
+    row:"top",
+    col,
+    bottom:topBottom[col],
+    right:topVertical[col+1],
+    top:topTop[col],
+    left:topVertical[col]
+  });
+}
+
+// ============================================================
+// MATRIX AND GEOMETRY
+// ============================================================
+
+function matrixA() {
+  const {s,theta,u,t}=state;
+  const ct=Math.cos(Math.PI*theta);
+  const st=Math.sin(Math.PI*theta);
+  const ep=Math.exp(t),em=Math.exp(-t);
+
+  return {
+    a:s*ep*ct,
+    b:s*em*(u*ct-st),
+    c:s*ep*st,
+    d:s*em*(u*st+ct)
+  };
+}
+
+function applyA(z) {
+  const {a,b,c,d}=matrixA();
+  return C(a*z.re+b*z.im,c*z.re+d*z.im);
+}
+
+const directions=[
+  C(1,0),C(0,1),C(-1,0),C(0,-1)
+];
+
+function sideVector(cell,j,mode) {
+  const edges=[
+    cell.bottom,cell.right,cell.top,cell.left
+  ];
+
+  const edge=edges[j-1];
+  let v=directions[j-1];
+
+  if(mode>=1) v=applyA(v);
+
+  if(mode===2) {
+    const sign=cell.s===1?1:-1;
+    v=C(v.re+sign*beta(edge.k,edge.j),v.im);
+  }
+
+  return v;
+}
+
+function cellGeometry(cell,mode) {
+  const points=[C(0,0)];
+
+  for(let j=1;j<=4;j++)
+    points.push(add(
+      points[points.length-1],
+      sideVector(cell,j,mode)
+    ));
+
+  return points;
+}
+
+function surfaceGeometry(mode) {
+  const cells = [];
+  let minX = Infinity;
+
+  function placeCylinder(cylinder, initialY) {
+    let origin = C(0, initialY);
+
+    for (const cell of cylinder) {
+      const local = cellGeometry(cell, mode);
+
+      const points = local.map(p => add(p, origin));
+
+      cells.push({ cell, points });
+
+      for (const p of points) {
+        minX = Math.min(minX, p.re);
+      }
+
+      // The next polygon begins at the current
+      // polygon's bottom-right vertex.
+      origin = points[1];
+    }
+  }
+
+  placeCylinder(bottom, 0);
+  placeCylinder(top, 2.3);
+
+  // Align the leftmost vertex of the surface at x = 0.
+  for (const item of cells) {
+    for (const p of item.points) {
+      p.re -= minX;
+    }
+  }
+
+  return cells;
+}
+
+// ============================================================
+// SVG HELPERS
+// ============================================================
+
+const NS="http://www.w3.org/2000/svg";
+
+function svgEl(tag,attributes={}) {
+  const el=document.createElementNS(NS,tag);
+
+  for(const [key,value] of Object.entries(attributes))
+    el.setAttribute(key,value);
+
+  return el;
+}
+
+// ============================================================
+// MATHJAX SVG LABEL CACHE
+// ============================================================
+
+const mathCache=new Map();
+
+async function mathSVG(latex) {
+  if(!mathCache.has(latex)) {
+    const wrapper=await MathJax.tex2svgPromise(latex,{
+      display:false
+    });
+
+    const svg=wrapper.querySelector("svg");
+    mathCache.set(latex,svg.cloneNode(true));
+  }
+
+  return mathCache.get(latex).cloneNode(true);
+}
+
+async function drawMathLabel(svg,x,y,latex,size=13,color="#26364a") {
+  const math=await mathSVG(latex);
+
+  const viewBox=math.getAttribute("viewBox");
+  if(!viewBox) return;
+
+  const values=viewBox.split(/\s+/).map(Number);
+  const naturalWidth=values[2];
+  const naturalHeight=values[3];
+
+  const height=size;
+  const width=height*naturalWidth/naturalHeight;
+
+  math.setAttribute("x",x-width/2);
+  math.setAttribute("y",y-height/2);
+  math.setAttribute("width",width);
+  math.setAttribute("height",height);
+  math.style.color=color;
+
+  svg.appendChild(math);
+}
+
+function edgeLabel(edge) {
+  const g=edge.k===0?"1":
+    edge.k===1?"r":`r^{${edge.k}}`;
+
+  return `e_{${g}}^{${edge.j}}`;
+}
+
+function cellLabel(cell) {
+  const g=cell.k===0?"1":
+    cell.k===1?"r":`r^{${cell.k}}`;
+
+  return `B_{${g}}^{${cell.s}}`;
+}
+
+// ============================================================
+// SINGULARITY MARKERS
+// ============================================================
+
+function singularityStyles(cell) {
+  const even=cell.col%2===0;
+
+  if(cell.row==="bottom") {
+    return even
+      ? ["circle","square","star","triangle"]
+      : ["square","circle","triangle","star"];
+  }
+
+  return even
+    ? ["triangle","star","square","circle"]
+    : ["star","triangle","circle","square"];
+}
+
+function drawMarker(svg,x,y,style) {
+  const r=3.2;
+
+  if(style==="circle") {
+    svg.appendChild(svgEl("circle",{
+      cx:x,cy:y,r,fill:"#202632"
+    }));
+    return;
+  }
+
+  if(style==="square") {
+    svg.appendChild(svgEl("rect",{
+      x:x-r,y:y-r,width:2*r,height:2*r,
+      fill:"#202632"
+    }));
+    return;
+  }
+
+  const points=[];
+  const n=style==="triangle"?3:10;
+
+  for(let i=0;i<n;i++) {
+    const angle=-Math.PI/2+2*Math.PI*i/n;
+    const rr=style==="star"?(i%2===0?5:2.3):4.5;
+
+    points.push(
+      `${x+rr*Math.cos(angle)},${y+rr*Math.sin(angle)}`
+    );
+  }
+
+  svg.appendChild(svgEl("polygon",{
+    points:points.join(" "),
+    fill:"#202632"
+  }));
+}
+
+// ============================================================
+// DRAW SURFACE
+// ============================================================
+
+async function drawSurface(id,mode) {
+  const svg=document.getElementById(id);
+  svg.replaceChildren();
+
+  const data=surfaceGeometry(mode);
+  const allPoints=data.flatMap(item=>item.points);
+
+  const minX=Math.min(...allPoints.map(p=>p.re));
+  const maxX=Math.max(...allPoints.map(p=>p.re));
+  const minY=Math.min(...allPoints.map(p=>p.im));
+  const maxY=Math.max(...allPoints.map(p=>p.im));
+
+  const scale=40,margin=45;
+  const width=(maxX-minX)*scale+2*margin;
+  const height=(maxY-minY)*scale+2*margin;
+
+  svg.setAttribute("viewBox",`0 0 ${width} ${height}`);
+
+  const X=p=>margin+(p.re-minX)*scale;
+  const Y=p=>margin+(maxY-p.im)*scale;
+
+  const showEdges=document.getElementById("showEdges").checked;
+  const showCells=document.getElementById("showCells").checked;
+  const showArrows=document.getElementById("showArrows").checked;
+  const showPoints=document.getElementById("showPoints").checked;
+  const showInternalLabels =document.getElementById("showInternalLabels").checked;
+
+  for(const {cell,points} of data) {
+    const P=points.slice(0,4);
+    const edges=[
+      cell.bottom,cell.right,cell.top,cell.left
+    ];
+
+    let area=0;
+    for(let j=0;j<4;j++) {
+      const q=P[(j+1)%4];
+      area+=P[j].re*q.im-q.re*P[j].im;
+    }
+
+    const orientation=area>=0?1:-1;
+
+    for(let j=0;j<4;j++) {
+      const p=P[j],q=P[(j+1)%4];
+      const x1=X(p),y1=Y(p),x2=X(q),y2=Y(q);
+
+    const isInternal = (j === 1 && cell.col < 7)||(j === 3 && cell.col > 0);
+
+    svg.appendChild(svgEl("line", {
+      x1, y1, x2, y2,
+      stroke: "#26364a",
+      "stroke-width": 1.4,
+      ...(isInternal ? {"stroke-dasharray": "5 4"} : {})
+    }));
+
+      if(showArrows) {
+        const direction=cell.s===1?1:-1;
+        const dx=x2-x1,dy=y2-y1;
+        const len=Math.hypot(dx,dy);
+
+        if(len>1e-9) {
+          const ux=direction*dx/len;
+          const uy=direction*dy/len;
+          const mx=(x1+x2)/2,my=(y1+y2)/2;
+          const ax=mx-ux*5,ay=my-uy*5;
+
+          svg.appendChild(svgEl("polygon",{
+            points:[
+              `${mx},${my}`,
+              `${ax-uy*2.5},${ay+ux*2.5}`,
+              `${ax+uy*2.5},${ay-ux*2.5}`
+            ].join(" "),
+            fill:"#26364a"
+          }));
+        }
+      }
+
+      if (showEdges && mode !== 1 &&(!isInternal || showInternalLabels)) {
+        const dx=q.re-p.re,dy=q.im-p.im;
+        const len=Math.hypot(dx,dy);
+
+        if(len>1e-9) {
+          const nx=orientation*dy/len;
+          const ny=-orientation*dx/len;
+
+          const midpoint=C(
+            (p.re+q.re)/2+0.35*nx,
+            (p.im+q.im)/2+0.35*ny
+          );
+
+          await drawMathLabel(
+            svg,X(midpoint),Y(midpoint),
+            edgeLabel(edges[j]),12
+          );
+        }
+      }
+    }
+
+    if(showCells) {
+      const cx=P.reduce((sum,p)=>sum+p.re,0)/4;
+      const cy=P.reduce((sum,p)=>sum+p.im,0)/4;
+
+      await drawMathLabel(
+        svg,X(C(cx,cy)),Y(C(cx,cy)),
+        cellLabel(cell),15
+      );
+    }
+
+    if(showPoints) {
+      const styles=singularityStyles(cell);
+      for(let j=0;j<4;j++)
+        drawMarker(svg,X(P[j]),Y(P[j]),styles[j]);
+    }
+  }
+}
+
+// ============================================================
+// FORMULAS WITH MATHJAX
+// ============================================================
+
+function matrixTex(a,b,c,d) {
+  return `\\begin{pmatrix}${a}&${b}\\\\${c}&${d}\\end{pmatrix}`;
+}
+
+function updateFormulas() {
+  const {s,theta,u,t,x1,x2,x3,x4}=state;
+  const factors=[];
+
+  if(nonzero(s-1)) factors.push(format(s));
+
+  if(nonzero(theta)) {
+    const angle=`${format(theta)}\\pi`;
+    factors.push(matrixTex(
+      `\\cos(${angle})`,`-\\sin(${angle})`,
+      `\\sin(${angle})`,`\\cos(${angle})`
+    ));
+  }
+
+  if(nonzero(u))
+    factors.push(matrixTex("1",format(u),"0","1"));
+
+  if(nonzero(t))
+    factors.push(matrixTex(
+      `e^{${format(t)}}`,"0",
+      "0",`e^{${format(-t)}}`
+    ));
+
+  if(!factors.length) factors.push("I");
+
+  const matrixLatex=
+    `M=A\\cdot M_0,\\qquad A=${factors.join("")}`;
+
+  document.getElementById("matrixFormula").textContent=
+    `\\(${matrixLatex}\\)`;
+
+  const terms=[
+    [x1,"\\operatorname{Re}(\\omega_1)"],
+    [x2,"\\operatorname{Im}(\\omega_1)"],
+    [x3,"\\operatorname{Re}(\\omega_2)"],
+    [x4,"\\operatorname{Im}(\\omega_2)"]
+  ];
+
+  let expression="";
+
+  for(const [value,basis] of terms) {
+    if(!nonzero(value)) continue;
+
+    const magnitude=Math.abs(value);
+    const coeff=Math.abs(magnitude-1)<1e-9
+      ?""
+      :format(magnitude);
+
+    const term=coeff+basis;
+
+    if(!expression)
+      expression=(value<0?"-":"")+term;
+    else
+      expression+=(value<0?"-":"+")+term;
+  }
+
+  if(!expression) expression="0";
+
+  const betaLatex=
+    `\\operatorname{hol}_{M'}=\\operatorname{hol}_M+\\beta,
+     \\qquad\\beta=${expression}`;
+
+  document.getElementById("betaFormula").textContent=
+    `\\(${betaLatex}\\)`;
+}
+
+// ============================================================
+// RENDER AND INITIALIZATION
+// ============================================================
+
+let renderVersion=0;
+
+async function render() {
+  const version=++renderVersion;
+
+  for(const [name] of parameters)
+    document.getElementById(name+"Value").textContent=
+      format(state[name]);
+
+  MathJax.typesetClear([
+    document.getElementById("matrixFormula"),
+    document.getElementById("betaFormula")
+  ]);
+  updateFormulas();
+
+  await MathJax.typesetPromise([
+    document.getElementById("matrixFormula"),
+    document.getElementById("betaFormula")
+  ]);
+
+  if(version!==renderVersion) return;
+
+  await drawSurface("surface0",0);
+  if(version!==renderVersion) return;
+
+  await drawSurface("surface1",1);
+  if(version!==renderVersion) return;
+
+  await drawSurface("surface2",2);
+}
+
+function initialize() {
+  makeControls();
+
+  document.getElementById("reset").onclick=()=>{
+    state={...defaults};
+    syncSliders();
+    render();
+  };
+
+  document.getElementById("zeroBeta").onclick=()=>{
+    for(const name of ["x1","x2","x3","x4"])
+      state[name]=0;
+
+    syncSliders();
+    render();
+  };
+
+  for (const name of [
+  "showEdges",
+  "showInternalLabels",
+  "showCells",
+  "showArrows",
+  "showPoints"
+]) {
+    document.getElementById(name).onchange=render;
+  }
+
+  MathJax.startup.promise.then(() => {
+    render();
+  }).catch(error => {
+    console.error("MathJax initialization error:", error);
+  });
+}
+
+try {
+  initialize();
+} catch(error) {
+  console.error(error);
+  const box=document.getElementById("error");
+  box.style.display="block";
+  box.textContent="JavaScript error: "+error.message;
+}
+
+})();
+</script>
+</body>
+</html>
