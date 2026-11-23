@@ -12,7 +12,16 @@
   background: #f5f6f8;
 }
 * { box-sizing: border-box; }
-body { margin: 0; }
+html { height: 100%; }
+body {
+  margin: 0;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body > header, body > #error { flex-shrink: 0; }
 header {
   padding: 18px 26px;
   background: white;
@@ -22,9 +31,13 @@ h1 { margin: 0 0 5px; font-size: 23px; }
 .subtitle { color: #697386; font-size: 13px; }
 .layout {
   display: grid;
-  grid-template-columns: 300px minmax(0,1fr);
+  grid-template-columns: 300px minmax(0, 1fr);
   gap: 18px;
   padding: 18px;
+  flex: 1;
+  min-height: 0;
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
 }
 aside, .panel {
   background: white;
@@ -32,7 +45,14 @@ aside, .panel {
   border-radius: 12px;
   padding: 18px;
 }
-aside { align-self: start; position: sticky; top: 15px; }
+/* Each desktop column scrolls within the space below the header. */
+.layout > aside, .layout > main {
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+aside { position: static; }
 h2 { font-size: 15px; margin: 0 0 15px; }
 h3 { font-size: 13px; margin: 22px 0 12px; }
 .control { margin: 15px 0; }
@@ -45,6 +65,19 @@ h3 { font-size: 13px; margin: 22px 0 12px; }
 }
 output { font-weight: 600; font-variant-numeric: tabular-nums; }
 input[type=range] { width: 100%; accent-color: #3567b7; }
+#presets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#presets button {
+  width: 100%;
+  margin: 0 !important;
+  padding: 12px 10px;
+  min-height: 50px;
+  line-height: 1.5;
+}
 .buttons { display: flex; gap: 8px; margin-top: 20px; }
 button {
   border: 1px solid #cbd3df;
@@ -85,9 +118,27 @@ button:hover { background: #edf2fa; }
   border-radius: 8px;
   white-space: pre-wrap;
 }
-@media(max-width:800px) {
-  .layout { grid-template-columns: 1fr; }
-  aside { position: static; }
+/* Small screens use a single, normally scrolling page. */
+@media (max-width: 800px) {
+  html { height: auto; }
+  body {
+    display: block;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+    overflow: visible;
+  }
+  .layout > aside, .layout > main {
+    height: auto;
+    overflow: visible;
+    overscroll-behavior: auto;
+  }
 }
 </style>
 
@@ -206,23 +257,27 @@ const parameters = [
 ];
 
 const presets = {
-  "Original": {
+  "\\(M_0\\)": {
     s:1, theta:0, u:0, t:0,
     x1:0,x2:0,x3:0,x4:0
   },
-  "Rotation": {
+
+  "\\(A = R_{\\pi/4} = \\begin{pmatrix} \\frac{1}{\\sqrt{2}} & -\\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{2}} \\end{pmatrix}\\)": {
     s:1, theta:1/4, u:0, t:0,
     x1:0,x2:0,x3:0,x4:0
   },
-  "Shear": {
+
+  "\\(A = U_{1/2} = \\begin{pmatrix} 1 & \\frac{1}{2} \\\\ 0 & 1 \\end{pmatrix}\\)": {
     s:1, theta:0, u:0.5, t:0,
     x1:0,x2:0,x3:0,x4:0
   },
-  "Diagonal": {
+
+  "\\(A = g_{\\log(3/2)} = \\begin{pmatrix} \\frac{3}{2} & 0 \\\\ 0 & \\frac{2}{3} \\end{pmatrix}\\)": {
     s:1, theta:0, u:0, t:Math.log(1.5),
     x1:0,x2:0,x3:0,x4:0
   },
-  "Beta": {
+
+  "\\( \\beta = -\\frac{1}{4} \\Re(\\omega_1) - \\frac{1}{4}\\Im(\\omega_1) + \\frac{1}{4}\\Re(\\omega_2) + \\Im(\\omega_2) \\)": {
     s:1, theta:0, u:0, t:0,
     x1:-0.25,x2:-0.25,x3:0.25,x4:1
   }
@@ -277,7 +332,7 @@ function makeControls() {
 
   for(const [name,values] of Object.entries(presets)) {
     const button=document.createElement("button");
-    button.textContent=name;
+    button.innerHTML = name;
     button.style.margin="3px";
 
     button.onclick=()=>{
@@ -894,8 +949,9 @@ function initialize() {
   makeControls();
 
   MathJax.typesetPromise([
-  document.getElementById("matrixControls"),
-  document.getElementById("betaControls")
+    document.getElementById("matrixControls"),
+    document.getElementById("betaControls"),
+    document.getElementById("presets")
   ]);
 
   document.getElementById("reset").onclick=()=>{
