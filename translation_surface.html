@@ -196,13 +196,13 @@ let state = {...defaults};
 
 const parameters = [
   ["s", "Area scaling", 0.2, 3, 0.01],
-  ["theta", "Rotation θ = rπ", -1, 1, 0.01],
+  ["theta", "Rotation \\(\\theta = r\\pi\\)", -1, 1, 0.01],
   ["u", "Horocycle flow", -2, 2, 0.01],
   ["t", "Geodesic flow", -1.5, 1.5, 0.01],
-  ["x1", "x₁  Re(ω₁)", -2, 2, 0.01],
-  ["x2", "x₂  Im(ω₁)", -2, 2, 0.01],
-  ["x3", "x₃  Re(ω₂)", -2, 2, 0.01],
-  ["x4", "x₄  Im(ω₂)", -2, 2, 0.01]
+  ["x1", "\\(x_1\\,\\Re(\\omega_1)\\)", -2, 2, 0.01],
+  ["x2", "\\(x_2\\,\\Im(\\omega_1)\\)", -2, 2, 0.01],
+  ["x3", "\\(x_3\\,\\Re(\\omega_2)\\)", -2, 2, 0.01],
+  ["x4", "\\(x_4\\,\\Im(\\omega_2)\\)", -2, 2, 0.01]
 ];
 
 const presets = {
@@ -246,7 +246,7 @@ function makeControls() {
     lab.htmlFor=name;
 
     const span=document.createElement("span");
-    span.textContent=label;
+    span.innerHTML=label;
 
     const output=document.createElement("output");
     output.id=name+"Value";
@@ -892,6 +892,11 @@ async function render() {
 
 function initialize() {
   makeControls();
+
+  MathJax.typesetPromise([
+  document.getElementById("matrixControls"),
+  document.getElementById("betaControls")
+  ]);
 
   document.getElementById("reset").onclick=()=>{
     state={...defaults};
