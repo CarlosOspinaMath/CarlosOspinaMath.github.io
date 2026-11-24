@@ -1,3 +1,8 @@
+---
+title: Seminar plan
+permalink: /seminar/seminar-plan
+---
+
 <script>
   document.documentElement.lang = 'en';
   window.MathJax = {
