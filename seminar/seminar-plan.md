@@ -13,7 +13,39 @@ permalink: /seminar/seminar-plan/
 </script>
 <script src="/mathjax.js" defer></script>
 
+<style>
+  #markdown-toc {
+    overflow: auto;
+    font-size: 13px;
+    line-height: 1.45;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 16px 14px 32px;
+    background: #f8f9fa;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  #markdown-toc ul {
+    padding-left: 20px;
+  }
+
+  #markdown-toc a {
+    text-decoration: none;
+  }
+
+  #markdown-toc a:hover {
+    text-decoration: underline;
+  }
+</style>
+
 # Reading seminar: Generic points on the staircase and irregularities in uniform distribution
+{:.no_toc}
+
+## Contents
+{:.no_toc}
+
+* TOC
+{:toc}
 
 We are reading Dmitry Dolgopyat and Omri Sarig’s *Generic Points on the Staircase and Irregularities in Uniform Distribution*. The seminar aims to understand the main results, study the techniques behind them, and explore why the problems are interesting.
 
