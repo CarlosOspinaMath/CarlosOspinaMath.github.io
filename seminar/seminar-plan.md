@@ -161,3 +161,17 @@ To receive seminar announcements, please sign up below.
   title="Seminar mailing list signup">
   Loading…
 </iframe>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const homeLink = Array.from(
+    document.querySelectorAll("h1 a")
+  ).find(link => link.textContent.trim() === "Carlos Ospina");
+
+  if (homeLink) {
+    homeLink.textContent = "← Home";
+    homeLink.href = "/";
+    homeLink.style.fontSize = "20px";
+  }
+});
+</script>
