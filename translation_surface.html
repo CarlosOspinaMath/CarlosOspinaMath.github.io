@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Translation Surface Deformations</title>
 
+<link rel="stylesheet" href="style.css">
+<script src="footer.js" defer></script>
+
 <style>
 :root {
   font-family: system-ui, -apple-system, sans-serif;
@@ -20,8 +23,18 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #222936;
+  background: #f5f6f8;
 }
-body > header, body > #error { flex-shrink: 0; }
+
+body > header,
+body > #error,
+body > .footer-placeholder {
+  flex-shrink: 0;
+}
 header {
   padding: 18px 26px;
   background: white;
@@ -139,6 +152,18 @@ button:hover { background: #edf2fa; }
     overflow: visible;
     overscroll-behavior: auto;
   }
+}
+/* Applet footer */
+.footer-placeholder footer {
+  margin: 0;
+  padding: 8px 18px;
+  border-top: 1px solid #dfe3e8;
+  background: white;
+  text-align: center;
+  font-family: 'STIX Two Text', serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #697386;
 }
 </style>
 
@@ -996,5 +1021,7 @@ try {
 
 })();
 </script>
+<div class="footer-placeholder"></div>
+
 </body>
 </html>
