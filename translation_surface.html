@@ -15,6 +15,27 @@
   background: #f5f6f8;
 }
 * { box-sizing: border-box; }
+/* Link back to website */
+header {
+  position: relative;
+  padding-right: 120px;
+}
+
+.home-link {
+  position: absolute;
+  top: 18px;
+  right: 26px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: #3567b7;
+  text-decoration: none;
+}
+
+.home-link:hover {
+  text-decoration: underline;
+}
 html { height: 100%; }
 body {
   margin: 0;
@@ -31,8 +52,7 @@ body {
 }
 
 body > header,
-body > #error,
-body > .footer-placeholder {
+body > #error {
   flex-shrink: 0;
 }
 header {
@@ -155,10 +175,10 @@ button:hover { background: #edf2fa; }
 }
 /* Applet footer */
 .footer-placeholder footer {
-  margin: 0;
-  padding: 8px 18px;
+  margin: 20px 0 0;
+  padding: 12px 18px;
   border-top: 1px solid #dfe3e8;
-  background: white;
+  background: transparent;
   text-align: center;
   font-family: 'STIX Two Text', serif;
   font-size: 12px;
@@ -190,6 +210,7 @@ window.MathJax = {
   <div class="subtitle">
     \( \mathrm{SL}_2(\mathbb{R}) \) and real deformations of \(M_0\)
   </div>
+  <a href="index.html" class="home-link"><i class="fa-solid fa-house"></i> Home</a>
 </header>
 
 <div id="error"></div>
@@ -246,6 +267,8 @@ window.MathJax = {
       \( \beta \) changes the horizontal components of holonomies.
     </div>
   </section>
+
+  <div class="footer-placeholder"></div>
 </main>
 </div>
 
@@ -1021,7 +1044,7 @@ try {
 
 })();
 </script>
-<div class="footer-placeholder"></div>
+
 
 </body>
 </html>
