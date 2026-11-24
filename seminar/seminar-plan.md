@@ -110,24 +110,32 @@ Our main route leads to the criterion for equidistribution of the discrepancy se
 
 ## Schedule and meeting materials
 
-The schedule is provisional. Unassigned speakers are marked “TBA”; a dash in the materials column means that no materials have been posted yet. Section and page references refer to the arXiv v1 PDF.
+The schedule is provisional. We begin with the prerequisites, using the temporal central limit theorem as a guide to the proof. We then develop the shared machinery before treating the main results separately.
+
+Unassigned speakers are marked “TBA”; a dash in the materials column means that no materials have been posted yet. Section and page references refer to the arXiv v1 PDF.
 
 | Meeting | Topic | Reading | Speaker | Slides and notes |
 |---|---|---|---|---|
 | 1 | Arithmetic questions and dynamical formulation | §§1.1–1.3; selected §1.4 | Carlos & Chen | [Part I](discrepancies_and_bias.pdf)<br>[Part II](from_the_cylinder_map_to_the_staircase.pdf) |
-| 2 | The proof strategy | §§1.3–1.4, 1.6; Appendix A as needed | Chen | — |
-| 3 | Renormalization | §§2–4.2, pp. 27–36; Appendix B as needed | Yonatan | — |
-| 4 | Symbolic coding and jumps | §§5–6, pp. 36–44 | Carlos | — |
-| 5 | The changing Markov chain | §7, pp. 44–49; Appendix D setup | TBA | — |
-| 6 | Why the limit theorems apply | §8, pp. 49–56; relevant Appendix D statements | TBA | — |
-| 7 | From coding back to orbit segments | §9, pp. 56–61; §1.6.2 | TBA | — |
-| 8 | Central and local limits | §10, pp. 61–67; Appendix D as needed | TBA | — |
-| 9 | Change of measure and pressure | §§11.1–11.3, pp. 68–70; selected Appendix D | TBA | — |
-| 10 | Comparing pressure descriptions | §§11.4–11.5, pp. 70–83 | TBA | — |
-| 11 | Sufficient conditions | §12.1, pp. 83–91 | TBA | — |
-| 12 | Necessary conditions | §12.2, pp. 91–100; §1.6.4 | TBA | — |
-| 13 | Back to the arithmetic criterion | §12.3, pp. 100–106; §4.3; selected Appendix C, pp. 151–160 | TBA | — |
-| 14 | Recap and open problems | §§1.2, 1.4, 1.6; proof locator p. 179 | Everyone | — |
+| 2 | The proof skeleton | §1.6; §10.1, especially pp. 62–63, as an overview of the steps and required tools | Chen | — |
+| 3 | Renormalization | §§2–4.2, pp. 27–36; Appendix A for even continued fractions; Appendix B for the denseness estimates used in §4 | Yonatan | — |
+| 4 | The renormalized stair coordinate of the origin | §4.3; statement of the twist formula from Appendix C, pp. 151–160 | TBA | — |
+| 5 | Symbolic coding and jump functions | §§5–6, pp. 36–44 | Carlos | — |
+| 6 | The inhomogeneous Markov chain | §7, pp. 44–49; Appendix D setup | TBA | — |
+| 7 | Irreducibility, drift, and variance | §8, pp. 49–56; relevant Appendix D statements | TBA | — |
+| 8 | From the chain back to orbit segments | §9, pp. 56–61; §1.6.2 | TBA | — |
+| 9 | Temporal CLT and explicit centering: Theorems 1.35, 1.9, and 1.10 | §10.1, pp. 61–64; Theorem D.7; selected Appendix C arguments | TBA | — |
+| 10 | Temporal local limit theorem: Theorems 1.36 and 1.13 | §10.2, pp. 64–67; Theorem D.21 | TBA | — |
+| 11 | Change of measure and pressure | §§11.1–11.3, pp. 68–70; statement and role of Proposition 11.7 | TBA | — |
+| 12 | Sufficient condition for genericity | §12.1, pp. 83–91 | TBA | — |
+| 13 | Necessary condition and arithmetic consequences: Theorems 1.20, 1.25, 1.2, and 1.3 | §§12.2–12.3, pp. 91–106 | TBA | — |
+| 14 (optional) | Constructing prescribed tilt: Theorems 1.26 and 1.4 | §14, pp. 123–135 | TBA | — |
+
+In meeting 4, we introduce the renormalized stair coordinate and explain the twist formula, initially taking its proof as a black box. We revisit selected arguments from Appendix C in meeting 9, when the formula makes the CLT centering explicit.
+
+For meeting 11, we use Proposition 11.7 without covering its full proof in §§11.4–11.5.
+
+Meeting 13 may be split into two sessions: one on the necessary condition for genericity (§12.2), and one on the arithmetic consequences (§12.3).
 
 ## Reading and participation
 
@@ -137,4 +145,4 @@ The probability results summarized in Appendix D will be used with attention to 
 
 ## Further topics
 
-Depending on the group’s interests, we may continue with ergodic integrals (§13), constructions with prescribed tilt (§14), or the Hausdorff dimension and Baire category of generic and non-generic points (§15).
+Depending on the group’s interests and available time, we may cover the optional construction of prescribed tilt (§14), growth and distribution of Birkhoff integrals (§13), or the Hausdorff dimension and Baire category of generic and non-generic points (§15).
