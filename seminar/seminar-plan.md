@@ -1,6 +1,6 @@
 ---
 title: Seminar plan
-permalink: /seminar/seminar-plan
+permalink: /seminar/seminar-plan/
 ---
 
 <script>
