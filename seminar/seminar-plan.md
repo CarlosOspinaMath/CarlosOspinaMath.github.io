@@ -15,26 +15,53 @@ permalink: /seminar/seminar-plan/
 
 <style>
   #markdown-toc {
-    overflow: auto;
+    box-sizing: border-box;
     font-size: 13px;
-    line-height: 1.45;
+    line-height: 1.5;
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 14px 16px 14px 32px;
+    padding: 16px 16px 16px 32px;
     background: #f8f9fa;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   }
 
+  #markdown-toc li {
+    margin: 8px 0;
+  }
+
   #markdown-toc ul {
-    padding-left: 20px;
+    padding-left: 18px;
   }
 
   #markdown-toc a {
+    color: #245b91;
     text-decoration: none;
+    overflow-wrap: anywhere;
   }
 
   #markdown-toc a:hover {
     text-decoration: underline;
+  }
+
+  /* Sidebar on wide screens */
+  @media (min-width: 1200px) {
+    body {
+      padding-left: 260px;
+    }
+
+    #markdown-toc {
+      position: fixed;
+      top: 30px;
+      left: 20px;
+      width: 220px;
+      max-height: calc(100vh - 60px);
+      overflow-y: auto;
+      margin: 0;
+    }
+
+    #toc-heading {
+      display: none;
+    }
   }
 </style>
 
@@ -42,7 +69,7 @@ permalink: /seminar/seminar-plan/
 {:.no_toc}
 
 ## Contents
-{:.no_toc}
+{: #toc-heading .no_toc}
 
 * TOC
 {:toc}
