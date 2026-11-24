@@ -146,3 +146,18 @@ The probability results summarized in Appendix D will be used with attention to 
 ## Further topics
 
 Depending on the group’s interests and available time, we may cover the optional construction of prescribed tilt (§14), growth and distribution of Birkhoff integrals (§13), or the Hausdorff dimension and Baire category of generic and non-generic points (§15).
+
+## Join the mailing list
+
+To receive seminar announcements, please sign up below.
+
+<iframe
+  src="https://docs.google.com/forms/d/e/1FAIpQLSc3Lu8Zv87b6Zf6b4Pwj20fZx-V_sieVXtfqPQuVQMlokwuWg/viewform?embedded=true&amp;hl=en"
+  width="100%"
+  height="650"
+  frameborder="0"
+  marginheight="0"
+  marginwidth="0"
+  title="Seminar mailing list signup">
+  Loading…
+</iframe>
