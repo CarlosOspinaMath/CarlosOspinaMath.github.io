@@ -234,17 +234,24 @@ window.MathJax = {
   </div>
 
   <div class="options">
-    <label><input type="checkbox" id="showEdges" checked>
-      Edge labels</label>
-    <label><input type="checkbox" id="showCells" checked>
-      Cell labels</label>
-    <label><input type="checkbox" id="showArrows" checked>
-      Arrows</label>
-    <label><input type="checkbox" id="showPoints" checked>
-      Singularities</label>
-    <label><input type="checkbox" id="showInternalLabels">
-      Internal edge labels</label>
-  </div>
+  <label><input type="checkbox" id="showEdges" checked>
+    Edge labels</label>
+
+  <label><input type="checkbox" id="showCells" checked>
+    Cell labels</label>
+
+  <label><input type="checkbox" id="showArrows" checked>
+    Arrows</label>
+
+  <label><input type="checkbox" id="showPoints" checked>
+    Singularities</label>
+
+  <label><input type="checkbox" id="showInternalEdges" checked>
+    Internal edges</label>
+
+  <label><input type="checkbox" id="showInternalLabels">
+    Internal edge labels</label>
+</div>
 </aside>
 
 <main>
@@ -794,7 +801,8 @@ async function drawSurface(id,mode) {
   const showCells=document.getElementById("showCells").checked;
   const showArrows=document.getElementById("showArrows").checked;
   const showPoints=document.getElementById("showPoints").checked;
-  const showInternalLabels =document.getElementById("showInternalLabels").checked;
+  const showInternalEdges=document.getElementById("showInternalEdges").checked;
+  const showInternalLabels=document.getElementById("showInternalLabels").checked;
 
   for(const {cell,points} of data) {
     const P=points.slice(0,4);
@@ -814,7 +822,12 @@ async function drawSurface(id,mode) {
       const p=P[j],q=P[(j+1)%4];
       const x1=X(p),y1=Y(p),x2=X(q),y2=Y(q);
 
-    const isInternal = (j === 1 && cell.col < 7)||(j === 3 && cell.col > 0);
+    const isInternal =
+      (j === 1 && cell.col < 7) ||
+      (j === 3 && cell.col > 0);
+
+    // Skip hidden internal edges, including their arrows and labels.
+    if (isInternal && !showInternalEdges) continue;
 
     svg.appendChild(svgEl("line", {
       x1, y1, x2, y2,
@@ -1018,11 +1031,12 @@ function initialize() {
 
   for (const name of [
   "showEdges",
+  "showInternalEdges",
   "showInternalLabels",
   "showCells",
   "showArrows",
   "showPoints"
-]) {
+  ]) {
     document.getElementById(name).onchange=render;
   }
 
