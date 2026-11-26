@@ -90,7 +90,7 @@ The meeting time, location, and dates will be announced here. Slides and notes w
 
 **19 November 2026 — First meeting:** Thursday, 10:00–11:00, in room 209 of the Schreiber Building, Tel Aviv University.
 
-**26 November 2026:** Thursday, 10:00–11:00, in room 309 of the Schreiber Building. Note that it is not the same room as the previous week.
+**26 November 2026:** Thursday, 9:30–11:00, in room 309 of the Schreiber Building. Note that it is not the same room as the previous week.
 
 ## About the paper
 
