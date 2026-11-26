@@ -116,8 +116,8 @@ Unassigned speakers are marked “TBA”; a dash in the materials column means t
 
 | Meeting | Topic | Reading | Speaker | Slides and notes |
 |---|---|---|---|---|
-| 1 | Arithmetic questions and dynamical formulation | §§1.1–1.3; selected §1.4 | Carlos & Chen | <a href="discrepancies_and_bias.pdf" target="_blank" rel="noopener noreferrer">Part I</a><br><a href="from_the_cylinder_map_to_the_staircase.pdf" target="_blank" rel="noopener noreferrer">Part II</a> |
-| 2 | The proof skeleton | §1.6; §10.1, especially pp. 62–63, as an overview of the steps and required tools | Chen | <a href="meeting2-notes.pdf" target="_blank" rel="noopener noreferrer">Notes</a> |
+| 1 | Arithmetic questions and dynamical formulation | §§1.1–1.3; selected §1.4 | Carlos & Chen | <a href="../discrepancies_and_bias.pdf" target="_blank" rel="noopener noreferrer">Part I</a><br><a href="../from_the_cylinder_map_to_the_staircase.pdf" target="_blank" rel="noopener noreferrer">Part II</a> |
+| 2 | The proof skeleton | §1.6; §10.1, especially pp. 62–63, as an overview of the steps and required tools | Chen | <a href="../meeting2-notes.pdf" target="_blank" rel="noopener noreferrer">Notes</a> |
 | 3 | Renormalization | §§2–4.2, pp. 27–36; Appendix A for even continued fractions; Appendix B for the denseness estimates used in §4 | Yonatan | — |
 | 4 | The renormalized stair coordinate of the origin | §4.3; statement of the twist formula from Appendix C, pp. 151–160 | TBA | — |
 | 5 | Symbolic coding and jump functions | §§5–6, pp. 36–44 | Carlos | — |
